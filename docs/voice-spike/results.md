@@ -97,6 +97,25 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 - **Wrong numbers in Levels 2 to 4:** none.
 - **Spike result (proposed):** passes the rule, with one condition. Listening stops by itself after a pause (statement 22), so the real app must restart listening automatically until the user taps stop.
 
+## Retest after pause fix
+
+The page now restarts listening by itself after a pause, until you tap stop (commit fdd104e). This retest checks that fix and repeats the statements where a phrase appeared twice.
+
+Screenshots are saved as `screenshots/R1.png`, `screenshots/R2.png` and so on. Reload the test page before starting so it has the fix. Count pauses in your head; they do not need to be exact.
+
+| # | Statement | What appeared | Rating | Notes | Screenshot |
+|---|-----------|---------------|--------|-------|------------|
+| R1 | **Repeat of 22:** The number of petrol stations is... (wait 3 seconds) ...about eight thousand. | | | | |
+| R2 | **Repeat of 14:** Revenue equals number of customers times average spend. | | | | |
+| R3 | **Repeat of 18:** I'll segment by age: under eighteen, eighteen to sixty-four, and over sixty-five. | | | | |
+| R4 | **Pause between numbers:** The UK has about sixty-seven million people... (wait 5 seconds) ...and roughly twenty-eight million households. | | | | |
+| R5 | **Two pauses:** First, households... (wait 3 seconds) ...then car ownership... (wait 3 seconds) ...then how often they fill up. | | | | |
+| R6 | **Long reasoning with a pause:** If each household spends about forty pounds a month on coffee... (wait 4 seconds) ...that's roughly thirteen billion pounds a year across the UK. | | | | |
+| R7 | **Very long pause:** Let me think... (wait 10 seconds) ...I'd say about five hundred thousand. | | | | |
+| R8 | **Full answer, no planned pauses:** To estimate the number of dentists in the UK, I'll start with sixty-seven million people, assume each visits a dentist twice a year, which gives about one hundred and thirty million visits, and if a dentist handles about four thousand visits a year, we need roughly thirty-three thousand dentists. | | | | |
+
+Also note whether the phone beeps or the button flickers when listening restarts after a pause.
+
 ## Findings
 
 - Chrome on Android resends the whole sentence so far with each new result, so the raw output repeats words. The test page removes these repeats (commit 9a74a6a). Possible side effect: saying the same phrase twice in a row might drop the second one. Statement 25 showed this did not happen for "yes yes".
