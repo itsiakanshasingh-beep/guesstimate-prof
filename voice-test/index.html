@@ -103,7 +103,12 @@
 
     // Text confirmed in earlier listening sessions, kept when you tap again.
     var savedText = '';
-    var listening = false;
+    // True from when you tap to start until you tap to stop. Chrome can stop
+    // listening by itself after a pause; while this is true, the page restarts it.
+    var wantListening = false;
+
+    // Errors that restarting will not fix, so listening stops for good.
+    var STOPPING_ERRORS = ['not-allowed', 'service-not-allowed', 'audio-capture', 'network', 'language-not-supported'];
 
     var ERROR_MESSAGES = {
       'not-allowed': 'Microphone permission was blocked. Allow the microphone for this site in Chrome settings, then reload.',
@@ -154,7 +159,6 @@
       recognition.continuous = true;
 
       recognition.onstart = function () {
-        listening = true;
         setButton('listening');
       };
 
@@ -195,31 +199,44 @@
       };
 
       recognition.onerror = function (event) {
+        // Silence during a thinking pause is normal, so do not report it while restarting.
+        if (wantListening && STOPPING_ERRORS.indexOf(event.error) === -1) return;
+        if (STOPPING_ERRORS.indexOf(event.error) !== -1) wantListening = false;
         setStatus(ERROR_MESSAGES[event.error] || 'Something went wrong: ' + event.error);
       };
 
-      recognition.onend = function () {
-        // The browser can stop by itself (for example after a pause), so reset the button here.
-        listening = false;
-        savedText += recognition.pendingText || '';
-        recognition.pendingText = '';
-        showText(savedText, '');
-        setButton('idle');
-      };
-
-      micButton.addEventListener('click', function () {
-        if (listening) {
-          recognition.stop();
-          return;
-        }
-        setStatus('');
-        setButton('starting');
+      function startListening() {
         try {
           recognition.start();
         } catch (err) {
+          wantListening = false;
           setStatus('Could not start listening: ' + err.message);
           setButton('idle');
         }
+      }
+
+      recognition.onend = function () {
+        savedText += recognition.pendingText || '';
+        recognition.pendingText = '';
+        showText(savedText, '');
+        if (wantListening) {
+          // Chrome stopped by itself (for example after a pause): listen again.
+          startListening();
+        } else {
+          setButton('idle');
+        }
+      };
+
+      micButton.addEventListener('click', function () {
+        if (wantListening) {
+          wantListening = false;
+          recognition.stop();
+          return;
+        }
+        wantListening = true;
+        setStatus('');
+        setButton('starting');
+        startListening();
       });
 
       clearButton.addEventListener('click', function () {
