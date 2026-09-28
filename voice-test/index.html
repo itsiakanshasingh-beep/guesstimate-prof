@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voice test</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: #f7f7f8;
+      color: #1d1d1f;
+    }
+    main {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin: 0;
+    }
+    #mic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: none;
+      background: #2563eb;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      -webkit-tap-highlight-color: transparent;
+    }
+    #mic.listening {
+      background: #dc2626;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    #mic:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+      animation: none;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5); }
+      50% { box-shadow: 0 0 0 16px rgba(220, 38, 38, 0); }
+    }
+    #transcript {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 160px;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      background: #fff;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+    #transcript .interim {
+      color: #9ca3af;
+    }
+    #status {
+      min-height: 1.4em;
+      font-size: 0.95rem;
+      color: #b91c1c;
+      text-align: center;
+    }
+    #clear:disabled {
+      color: #9ca3af;
+      cursor: not-allowed;
+    }
+    #clear {
+      background: none;
+      border: none;
+      color: #2563eb;
+      font-size: 0.95rem;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Voice test</h1>
+    <button id="mic" type="button">Tap to speak</button>
+    <div id="transcript" aria-live="polite"></div>
+    <div id="status" role="status"></div>
+    <button id="clear" type="button">Clear text</button>
+  </main>
+
+  <script>
+    var micButton = document.getElementById('mic');
+    var transcriptBox = document.getElementById('transcript');
+    var statusLine = document.getElementById('status');
+    var clearButton = document.getElementById('clear');
+
+    // Text confirmed in earlier listening sessions, kept when you tap again.
+    var savedText = '';
+    // True from when you tap to start until you tap to stop. Chrome can stop
+    // listening by itself after a pause; while this is true, the page restarts it.
+    var wantListening = false;
+
+    // Errors that restarting will not fix, so listening stops for good.
+    var STOPPING_ERRORS = ['not-allowed', 'service-not-allowed', 'audio-capture', 'network', 'language-not-supported'];
+
+    var ERROR_MESSAGES = {
+      'not-allowed': 'Microphone permission was blocked. Allow the microphone for this site in Chrome settings, then reload.',
+      'service-not-allowed': 'The browser would not let this page use speech recognition.',
+      'no-speech': 'No speech was heard. Tap the button and try again.',
+      'audio-capture': 'No microphone was found, or another app is using it.',
+      'network': 'Speech recognition needs an internet connection. Check your connection and try again.',
+      'aborted': 'Listening was stopped before any speech was recognised.',
+      'language-not-supported': 'The browser does not support British English (en-GB) recognition.'
+    };
+
+    function setStatus(message) {
+      statusLine.textContent = message;
+    }
+
+    function showText(finalText, interimText) {
+      transcriptBox.textContent = finalText;
+      if (interimText) {
+        var span = document.createElement('span');
+        span.className = 'interim';
+        span.textContent = interimText;
+        transcriptBox.appendChild(span);
+      }
+    }
+
+    function setButton(state) {
+      micButton.classList.toggle('listening', state === 'listening');
+      clearButton.disabled = state !== 'idle';
+      if (state === 'listening') {
+        micButton.textContent = 'Listening… tap to stop';
+      } else if (state === 'starting') {
+        micButton.textContent = 'Starting…';
+      } else {
+        micButton.textContent = 'Tap to speak';
+      }
+    }
+
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      micButton.disabled = true;
+      micButton.textContent = 'Not supported';
+      setStatus('This browser does not support speech recognition. Try Chrome on Android or on a laptop.');
+    } else {
+      var recognition = new SpeechRecognition();
+      recognition.lang = 'en-GB';
+      recognition.interimResults = true;
+      recognition.continuous = true;
+
+      recognition.onstart = function () {
+        setButton('listening');
+      };
+
+      // Chrome on Android often resends the whole sentence so far as each new
+      // result ("there", "there about", "there about 67"...). If a piece starts
+      // with the previous piece, it replaces it instead of being added.
+      function startsWith(text, start) {
+        return text.toLowerCase().indexOf(start.toLowerCase()) === 0;
+      }
+
+      recognition.onresult = function (event) {
+        var parts = [];
+        var interimText = '';
+        for (var i = 0; i < event.results.length; i++) {
+          var text = event.results[i][0].transcript.trim();
+          if (!text) continue;
+          if (event.results[i].isFinal) {
+            var last = parts[parts.length - 1];
+            if (last && startsWith(text, last)) {
+              parts[parts.length - 1] = text;
+            } else {
+              parts.push(text);
+            }
+          } else {
+            interimText += (interimText ? ' ' : '') + text;
+          }
+        }
+        // Hide the last confirmed piece if the grey text already repeats it.
+        var shown = parts.slice();
+        if (interimText && shown.length && startsWith(interimText, shown[shown.length - 1])) {
+          shown.pop();
+        }
+        var finalText = parts.length ? parts.join(' ') + ' ' : '';
+        var shownText = shown.length ? shown.join(' ') + ' ' : '';
+        showText(savedText + shownText, interimText);
+        // Remember everything on screen, including grey words, so the next
+        // session adds to it. Chrome can stop before it confirms the last words.
+        recognition.pendingText = interimText ? shownText + interimText + ' ' : finalText;
+      };
+
+      recognition.onerror = function (event) {
+        // Silence during a thinking pause is normal, so do not report it while restarting.
+        if (wantListening && STOPPING_ERRORS.indexOf(event.error) === -1) return;
+        if (STOPPING_ERRORS.indexOf(event.error) !== -1) wantListening = false;
+        setStatus(ERROR_MESSAGES[event.error] || 'Something went wrong: ' + event.error);
+      };
+
+      function startListening() {
+        try {
+          recognition.start();
+        } catch (err) {
+          wantListening = false;
+          setStatus('Could not start listening: ' + err.message);
+          setButton('idle');
+        }
+      }
+
+      recognition.onend = function () {
+        savedText += recognition.pendingText || '';
+        recognition.pendingText = '';
+        showText(savedText, '');
+        if (wantListening) {
+          // Chrome stopped by itself (for example after a pause): listen again.
+          startListening();
+        } else {
+          setButton('idle');
+        }
+      };
+
+      micButton.addEventListener('click', function () {
+        if (wantListening) {
+          wantListening = false;
+          recognition.stop();
+          return;
+        }
+        wantListening = true;
+        setStatus('');
+        setButton('starting');
+        startListening();
+      });
+
+      clearButton.addEventListener('click', function () {
+        savedText = '';
+        recognition.pendingText = '';
+        showText('', '');
+      });
+    }
+  </script>
+</body>
+</html>
