@@ -36,7 +36,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 
 | # | Statement | What appeared | Rating | Notes | Screenshot |
 |---|-----------|---------------|--------|-------|------------|
-| 1 | I think the answer is about one hundred. | | | | |
+| 1 | I think the answer is about one hundred. | one I think the answer is about 100 | Pass | "one hundred" written as digits. Leading "one" is likely the statement number read aloud. No repeated words. | [01](screenshots/01.png) |
 | 2 | Let me start with the population. | | | | |
 | 3 | The market is growing every year. | | | | |
 | 4 | I would split this into two groups. | | | | |
@@ -92,3 +92,5 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 ## Findings
 
 - Chrome on Android resends the whole sentence so far with each new result, so the raw output repeats words. The test page removes these repeats (commit 9a74a6a). Side effect: saying the same phrase twice in a row may drop the second one (see statement 25).
+- Numbers are written as digits ("one hundred" appears as "100"), which will make checking ballpark answers easier.
+- The repeated-words fix works on Chrome for Android (statement 1 showed no repeats).
