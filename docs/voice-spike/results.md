@@ -80,7 +80,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 | 22 | **Long pause:** The number of petrol stations is... (wait 3 seconds) ...about eight thousand. | the number of petrol station is | Fail | Listening stopped during the pause and the button returned to "Tap to speak". The second half, including the number, was lost. | [22](screenshots/22.png) |
 | 23 | **Fast speech:** Population sixty-seven million, households twenty-eight million, car ownership seventy-seven percent. | population 67 million households 28 million car ownership 77% | Pass | Exact match at speed. All three numbers correct: "67 million", "28 million", "77%". | [23](screenshots/23.png) |
 | 24 | **Background noise:** repeat statement 5 with the TV on or in a café. | the UK has about 67 million people | Pass | Exact match, same as statement 5 in quiet. Type and level of noise: _(to confirm)_. | [24](screenshots/24.png) |
-| 25 | **Repeated words:** Yes, yes, that's right. | | | | |
+| 25 | **Repeated words:** Yes, yes, that's right. | yes yes that's right | Pass | Exact match. The repeat filter did not drop the second "yes". | [25](screenshots/25.png) |
 
 ## Summary
 
@@ -91,7 +91,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 
 ## Findings
 
-- Chrome on Android resends the whole sentence so far with each new result, so the raw output repeats words. The test page removes these repeats (commit 9a74a6a). Side effect: saying the same phrase twice in a row may drop the second one (see statement 25).
+- Chrome on Android resends the whole sentence so far with each new result, so the raw output repeats words. The test page removes these repeats (commit 9a74a6a). Possible side effect: saying the same phrase twice in a row might drop the second one. Statement 25 showed this did not happen for "yes yes".
 - Numbers are written as digits ("one hundred" appears as "100"), which will make checking ballpark answers easier.
 - The repeated-words fix works on Chrome for Android (statement 1 showed no repeats).
 - Small numbers can stay as words ("two" in statement 4) while larger ones become digits ("100" in statement 1). Any later number checking must handle both.
