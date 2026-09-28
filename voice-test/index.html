@@ -194,8 +194,9 @@
         var finalText = parts.length ? parts.join(' ') + ' ' : '';
         var shownText = shown.length ? shown.join(' ') + ' ' : '';
         showText(savedText + shownText, interimText);
-        // Remember confirmed text so the next session adds to it.
-        recognition.pendingText = finalText;
+        // Remember everything on screen, including grey words, so the next
+        // session adds to it. Chrome can stop before it confirms the last words.
+        recognition.pendingText = interimText ? shownText + interimText + ' ' : finalText;
       };
 
       recognition.onerror = function (event) {
