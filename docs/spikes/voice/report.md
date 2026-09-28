@@ -4,7 +4,7 @@ Checks whether Chrome on Android can turn spoken guesstimate answers into accura
 
 This report was first saved as `docs/voice-spike.md`, the path named in issue #23, and moved here when the repository folders were organised.
 
-- **Test page:** https://itsiakanshasingh-beep.github.io/guesstimate-trainer/prototypes/voice-test/ (the older `/voice-test/` link forwards there)
+- **Test page:** https://itsiakanshasingh-beep.github.io/guesstimate-trainer/prototypes/voice-test/
 - **Device:** Google Pixel 8 Pro, Android 17
 - **Chrome version:** 153.0.8010.52
 - **Date tested:** 28 September 2026
