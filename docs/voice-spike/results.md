@@ -161,7 +161,7 @@ Screenshots are saved as `screenshots/L1.png`, `screenshots/L2.png` and so on. T
 |---|---------|-----------|---------------|--------|-------|------------|
 | L1 | Chrome | **Repeat of 5:** The UK has about sixty-seven million people. | the UK has about 67 million people | Pass | Exact match, same as on the phone. | [L1](screenshots/L1.png) |
 | L2 | Chrome | **Repeat of 8:** A cup of coffee costs about three pounds fifty. | a cup of coffee costs about £3.50 | Pass | Money written as "£3.50" with the £ symbol. Better than the phone, which gave "three pound 50" (statement 8). | [L2](screenshots/L2.png) |
-| L3 | Chrome | **Repeat of R4:** The UK has about sixty-seven million people... (wait 5 seconds) ...and roughly twenty-eight million households. | the UK has about 67 million people and roughly 28 million households | Pass | Exact match across the pause. "and" kept, which was lost on the phone (R4). Beeps: _(to confirm)_. | [L3](screenshots/L3.png) |
+| L3 | Chrome | **Repeat of R4:** The UK has about sixty-seven million people... (wait 5 seconds) ...and roughly twenty-eight million households. | the UK has about 67 million people and roughly 28 million households | Pass | Exact match across the pause. "and" kept, which was lost on the phone (R4). No beeps on the laptop. | [L3](screenshots/L3.png) |
 | L4 | Firefox | Open the test page. Expected: the button shows "Not supported" and is greyed out, with a message below it. | Button greyed out with "Not supported". Message: "This browser does not support speech recognition. Try Chrome on Android or on a laptop." | Pass | Works as expected. Screenshot cropped to the page only. | [L4](screenshots/L4.png) |
 
 ## Findings
@@ -190,3 +190,4 @@ Screenshots are saved as `screenshots/L1.png`, `screenshots/L2.png` and so on. T
 - A "network" error appeared at the end of a long answer while the phone was on wifi (R8). The page treats this error as final and stops listening. It may be a brief connection drop to Google's speech service, which Chrome on Android uses behind the scenes.
 - Laptop Chrome formats spoken money properly ("£3.50" in L2), while Chrome on Android did not ("three pound 50" in statement 8). The same speech gives different text on different devices, so any later number reading must handle both forms.
 - In Firefox the page clearly says voice is not supported (L4). The wording "Try Chrome on Android or on a laptop" is confusing for someone already on a laptop; the real app should say "Try Google Chrome" and point to the typed answer.
+- Laptop Chrome kept listening through a 5-second pause with no beeps and no lost words (L3). The restart problems seen on the phone are specific to Chrome on Android.
