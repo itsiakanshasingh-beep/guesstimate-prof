@@ -39,7 +39,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 | 1 | I think the answer is about one hundred. | one I think the answer is about 100 | Pass | "one hundred" written as digits. Leading "one" is likely the statement number read aloud. No repeated words. | [01](screenshots/01.png) |
 | 2 | Let me start with the population. | let me start with the population | Pass | Exact match. No capital letter or full stop added. | [02](screenshots/02.png) |
 | 3 | The market is growing every year. | the market is growing every year | Pass | Exact match. | [03](screenshots/03.png) |
-| 4 | I would split this into two groups. | | | | |
+| 4 | I would split this into two groups. | I would split this into two groups | Pass | Exact match. "two" kept as a word, while "one hundred" in statement 1 became digits. | [04](screenshots/04.png) |
 
 ### Level 2: Numbers, money and percentages
 
@@ -94,3 +94,4 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 - Chrome on Android resends the whole sentence so far with each new result, so the raw output repeats words. The test page removes these repeats (commit 9a74a6a). Side effect: saying the same phrase twice in a row may drop the second one (see statement 25).
 - Numbers are written as digits ("one hundred" appears as "100"), which will make checking ballpark answers easier.
 - The repeated-words fix works on Chrome for Android (statement 1 showed no repeats).
+- Small numbers can stay as words ("two" in statement 4) while larger ones become digits ("100" in statement 1). Any later number checking must handle both.
