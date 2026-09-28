@@ -65,7 +65,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 
 | # | Statement | What appeared | Rating | Notes | Screenshot |
 |---|-----------|---------------|--------|-------|------------|
-| 15 | First I'll estimate the number of households, then how many own a car, then how often they fill up. | | | | |
+| 15 | First I'll estimate the number of households, then how many own a car, then how often they fill up. | first I'll estimate the number of households then how many may own a car and then how often they fill up | Minor | Extra words "may" and "and" (possibly spoken naturally while reading). Meaning kept. Long sentence captured in full. | [15](screenshots/15.png) |
 | 16 | If London has nine million people and one in ten uses the Tube daily, that's nine hundred thousand trips each way. | | | | |
 | 17 | Assuming each salon serves forty clients a week at thirty pounds each, that's twelve hundred pounds a week per salon. | | | | |
 | 18 | I'll segment by age: under eighteen, eighteen to sixty-four, and over sixty-five. | | | | |
