@@ -57,7 +57,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 |---|-----------|---------------|--------|-------|------------|
 | 10 | The total addressable market is about four hundred million pounds. | the total addressable market is about 400 million pounds | Pass | Exact match. "total addressable market" recognised; "400 million" correct. | [10](screenshots/10.png) |
 | 11 | I'll use a top-down approach, then check it bottom-up. | I will use a top down approach then check it bottom up | Pass | Words correct. Hyphens and comma dropped; "I'll" appeared as "I will". Meaning kept. | [11](screenshots/11.png) |
-| 12 | Let's assume a penetration rate of fifteen percent. | | | | |
+| 12 | Let's assume a penetration rate of fifteen percent. | let's assume a penetration rate of 15% | Pass | Exact match. "penetration rate" recognised; "15%" with the % symbol. | [12](screenshots/12.png) |
 | 13 | The key drivers are price, volume and frequency. | | | | |
 | 14 | Revenue equals number of customers times average spend. | | | | |
 
