@@ -106,7 +106,7 @@ Screenshots are saved as `screenshots/R1.png`, `screenshots/R2.png` and so on. R
 | # | Statement | What appeared | Rating | Notes | Screenshot |
 |---|-----------|---------------|--------|-------|------------|
 | R1 | **Repeat of 22:** The number of petrol stations is... (wait 3 seconds) ...about eight thousand. | the number of petrol stations is about 8000 | Pass | Full sentence captured across the pause, including the number. Statement 22 failed before the fix. Button stayed on "Listening" through the pause and only stopped when tapped. | [R1](screenshots/R1.png) |
-| R2 | **Repeat of 14:** Revenue equals number of customers times average spend. | | | | |
+| R2 | **Repeat of 14:** Revenue equals number of customers times average spend. | revenue equals number of customers times average spend | Pass | Exact match. No repeated "equals" this time, so the repeat in statement 14 was intermittent or spoken. | [R2](screenshots/R2.png) |
 | R3 | **Repeat of 18:** I'll segment by age: under eighteen, eighteen to sixty-four, and over sixty-five. | | | | |
 | R4 | **Pause between numbers:** The UK has about sixty-seven million people... (wait 5 seconds) ...and roughly twenty-eight million households. | | | | |
 | R5 | **Two pauses:** First, households... (wait 3 seconds) ...then car ownership... (wait 3 seconds) ...then how often they fill up. | | | | |
