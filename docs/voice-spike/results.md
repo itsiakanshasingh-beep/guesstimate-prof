@@ -148,6 +148,22 @@ Also note whether the phone beeps or the button flickers when listening restarts
 - Both fails after the pause fix (R5 and R7b) came from speaking too close to a restart. This is a limit of Chrome's speech recognition on Android, not something the page can fully fix.
 - Voice is never the only way to answer: the typed fallback required by the build rules covers these cases.
 
+## Laptop check
+
+The app must also work in a laptop browser, because recruiters will open the link there. This checks voice in Chrome on a laptop, and the "not supported" message in a browser without speech recognition.
+
+- **Laptop and operating system:** _(for example, MacBook, macOS 15)_
+- **Chrome version:** _(Chrome menu > Settings > About Chrome)_
+
+Screenshots are saved as `screenshots/L1.png`, `screenshots/L2.png` and so on. Take each screenshot after tapping stop.
+
+| # | Browser | Statement | What appeared | Rating | Notes | Screenshot |
+|---|---------|-----------|---------------|--------|-------|------------|
+| L1 | Chrome | **Repeat of 5:** The UK has about sixty-seven million people. | | | | |
+| L2 | Chrome | **Repeat of 8:** A cup of coffee costs about three pounds fifty. | | | | |
+| L3 | Chrome | **Repeat of R4:** The UK has about sixty-seven million people... (wait 5 seconds) ...and roughly twenty-eight million households. | | | | |
+| L4 | Safari or Firefox | Open the test page. Expected: the button shows "Not supported" and is greyed out, with a message below it. | | | | |
+
 ## Findings
 
 - Chrome on Android resends the whole sentence so far with each new result, so the raw output repeats words. The test page removes these repeats (commit 9a74a6a). Possible side effect: saying the same phrase twice in a row might drop the second one. Statement 25 showed this did not happen for "yes yes".
