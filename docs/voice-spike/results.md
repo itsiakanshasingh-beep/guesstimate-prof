@@ -159,7 +159,7 @@ Screenshots are saved as `screenshots/L1.png`, `screenshots/L2.png` and so on. T
 
 | # | Browser | Statement | What appeared | Rating | Notes | Screenshot |
 |---|---------|-----------|---------------|--------|-------|------------|
-| L1 | Chrome | **Repeat of 5:** The UK has about sixty-seven million people. | | | | |
+| L1 | Chrome | **Repeat of 5:** The UK has about sixty-seven million people. | the UK has about 67 million people | Pass | Exact match, same as on the phone. | [L1](screenshots/L1.png) |
 | L2 | Chrome | **Repeat of 8:** A cup of coffee costs about three pounds fifty. | | | | |
 | L3 | Chrome | **Repeat of R4:** The UK has about sixty-seven million people... (wait 5 seconds) ...and roughly twenty-eight million households. | | | | |
 | L4 | Safari or Firefox | Open the test page. Expected: the button shows "Not supported" and is greyed out, with a message below it. | | | | |
