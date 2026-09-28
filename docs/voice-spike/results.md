@@ -105,7 +105,7 @@ Screenshots are saved as `screenshots/R1.png`, `screenshots/R2.png` and so on. R
 
 | # | Statement | What appeared | Rating | Notes | Screenshot |
 |---|-----------|---------------|--------|-------|------------|
-| R1 | **Repeat of 22:** The number of petrol stations is... (wait 3 seconds) ...about eight thousand. | the number of petrol stations is about 8000 | Pass | Full sentence captured across the pause, including the number. Statement 22 failed before the fix. | [R1](screenshots/R1.png) |
+| R1 | **Repeat of 22:** The number of petrol stations is... (wait 3 seconds) ...about eight thousand. | the number of petrol stations is about 8000 | Pass | Full sentence captured across the pause, including the number. Statement 22 failed before the fix. Button stayed on "Listening" through the pause and only stopped when tapped. | [R1](screenshots/R1.png) |
 | R2 | **Repeat of 14:** Revenue equals number of customers times average spend. | | | | |
 | R3 | **Repeat of 18:** I'll segment by age: under eighteen, eighteen to sixty-four, and over sixty-five. | | | | |
 | R4 | **Pause between numbers:** The UK has about sixty-seven million people... (wait 5 seconds) ...and roughly twenty-eight million households. | | | | |
@@ -131,3 +131,4 @@ Also note whether the phone beeps or the button flickers when listening restarts
 - When a speaker corrects themselves, both numbers appear ("3 million sorry 30 million" in statement 21). A person reading it can follow, but any automatic number check would need to take the last number, not the first.
 - Chrome on Android stops listening by itself after a pause of about 3 seconds, even though the page asks it to keep listening. Anything said after the pause is lost (statement 22). Thinking pauses are normal in guesstimates, so the real app must restart listening automatically until the user taps stop.
 - The pause fix works on Chrome for Android: after the page restarts listening, speech after a 3-second pause is kept (R1).
+- Because listening now only stops when tapped, the user must remember to tap stop. In the real app, submitting an answer should also stop listening.
