@@ -115,9 +115,22 @@ Screenshots are saved as `screenshots/R1.png`, `screenshots/R2.png` and so on. R
 | R7 | **Very long pause:** Let me think... (wait 10 seconds) ...I'd say about five hundred thousand. | let me think I'd say about 500, | Fail | Listening survived the 10-second pause and no error showed. But the number reads "500," instead of "500,000": "thousand" is missing. Tester confirmed the text stayed like this after stopping. | [R7](screenshots/R7.png) |
 | R7b | **R7, second attempt:** same statement. | let me think I'd say about 5 | Fail | Worse than the first attempt: "hundred thousand" lost, leaving "5". Tester observed that the phone beeps at regular intervals during silence, and words spoken too close to a beep are not captured. | [R7b](screenshots/R7b.png) |
 | R7c | **R7, after the grey-words fix** (commit 687a6c2): same statement. | let me think I'd say about 500,000 | Pass | Full number kept after the 10-second pause: "500,000". Screenshot taken while still listening. | [R7c](screenshots/R7c.png) |
-| R8 | **Full answer, no planned pauses:** To estimate the number of dentists in the UK, I'll start with sixty-seven million people, assume each visits a dentist twice a year, which gives about one hundred and thirty million visits, and if a dentist handles about four thousand visits a year, we need roughly thirty-three thousand dentists. | to estimate the number of dentists in the UK I will start with 67 million people each visits a dentist twice an ear gives about 130 million visits and if the dentist handles about 4,000 visits and a year we need roughly 33,000 dentists | Minor | All four numbers correct: "67 million", "130 million", "4,000", "33,000". Small word errors: "assume" and "which" missing, "a year" heard as "an ear" and "and a year". A "needs an internet connection" error showed at the end, with wifi on. | [R8](screenshots/R8.png) |
+| R8 | **Full answer, no planned pauses:** To estimate the number of dentists in the UK, I'll start with sixty-seven million people, assume each visits a dentist twice a year, which gives about one hundred and thirty million visits, and if a dentist handles about four thousand visits a year, we need roughly thirty-three thousand dentists. | to estimate the number of dentists in the UK I will start with 67 million people each visits a dentist twice an ear gives about 130 million visits and if the dentist handles about 4,000 visits and a year we need roughly 33,000 dentists | Minor | All four numbers correct: "67 million", "130 million", "4,000", "33,000". Small word errors: "assume" and "which" missing, "a year" heard as "an ear" and "and a year". A "needs an internet connection" error showed at the end, with wifi on. Tester not sure whether listening stopped by itself or was tapped to stop. | [R8](screenshots/R8.png) |
 
 Also note whether the phone beeps or the button flickers when listening restarts after a pause.
+
+### Retest summary
+
+| Result | Tries |
+|--------|-------|
+| Pass | 5 (R1, R2, R3, R6, R7c) |
+| Minor | 3 (R4, R5b, R8) |
+| Fail | 3 (R5, R7, R7b) |
+
+- The pause fix works: listening continues through pauses until the user taps stop.
+- The grey-words fix works: the number cut short in R7 and R7b came through in full in R7c.
+- Both fails after the pause fix (R5 and R7b) came from speaking too close to a restart. This is a limit of Chrome's speech recognition on Android, not something the page can fully fix.
+- Voice is never the only way to answer: the typed fallback required by the build rules covers these cases.
 
 ## Findings
 
