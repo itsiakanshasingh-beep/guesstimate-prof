@@ -59,7 +59,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 | 11 | I'll use a top-down approach, then check it bottom-up. | I will use a top down approach then check it bottom up | Pass | Words correct. Hyphens and comma dropped; "I'll" appeared as "I will". Meaning kept. | [11](screenshots/11.png) |
 | 12 | Let's assume a penetration rate of fifteen percent. | let's assume a penetration rate of 15% | Pass | Exact match. "penetration rate" recognised; "15%" with the % symbol. | [12](screenshots/12.png) |
 | 13 | The key drivers are price, volume and frequency. | the key drivers are prize volume and frequency | Minor | "price" misheard as "prize". A reader can still tell what was meant. Commas dropped. | [13](screenshots/13.png) |
-| 14 | Revenue equals number of customers times average spend. | | | | |
+| 14 | Revenue equals number of customers times average spend. | revenue equals equals number of customers times average spend | Minor | "equals" appears twice. All other words correct. Cause not yet confirmed (see Findings). | [14](screenshots/14.png) |
 
 ### Level 4: Longer reasoning
 
@@ -97,3 +97,4 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 - Small numbers can stay as words ("two" in statement 4) while larger ones become digits ("100" in statement 1). Any later number checking must handle both.
 - Spoken money is not converted to a £ amount. "three pounds fifty" appeared as "three pound 50", mixing words and digits in one amount (statement 8).
 - Sound-alike words can be misheard, even when they are key driver words ("price" became "prize" in statement 13). If driver checklists are ever matched automatically against a spoken answer, the matching must allow for this.
+- A word was repeated at a join between pieces of text ("equals equals" in statement 14). If it was not said twice, the repeat filter misses cases where a new piece overlaps the end of the previous one rather than repeating it from the start.
