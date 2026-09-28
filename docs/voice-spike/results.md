@@ -78,7 +78,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 | 20 | **Hesitation:** So, um, I think it's, er, about five million. | so um I think there is a about 5 million | Minor | Number correct: "5 million". "um" kept as a word; "er" probably became "a"; "it's" became "there is". Meaning kept. | [20](screenshots/20.png) |
 | 21 | **Self-correction:** That's three million, sorry, thirty million. | that's 3 million sorry 30 million | Pass | Exact match. Both numbers correct. Both the wrong and corrected number are kept, as spoken. | [21](screenshots/21.png) |
 | 22 | **Long pause:** The number of petrol stations is... (wait 3 seconds) ...about eight thousand. | the number of petrol station is | Fail | Listening stopped during the pause and the button returned to "Tap to speak". The second half, including the number, was lost. | [22](screenshots/22.png) |
-| 23 | **Fast speech:** Population sixty-seven million, households twenty-eight million, car ownership seventy-seven percent. | | | | |
+| 23 | **Fast speech:** Population sixty-seven million, households twenty-eight million, car ownership seventy-seven percent. | population 67 million households 28 million car ownership 77% | Pass | Exact match at speed. All three numbers correct: "67 million", "28 million", "77%". | [23](screenshots/23.png) |
 | 24 | **Background noise:** repeat statement 5 with the TV on or in a café. | | | | |
 | 25 | **Repeated words:** Yes, yes, that's right. | | | | |
 
