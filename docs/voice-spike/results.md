@@ -65,7 +65,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 
 | # | Statement | What appeared | Rating | Notes | Screenshot |
 |---|-----------|---------------|--------|-------|------------|
-| 15 | First I'll estimate the number of households, then how many own a car, then how often they fill up. | first I'll estimate the number of households then how many may own a car and then how often they fill up | Minor | Extra words "may" and "and" (possibly spoken naturally while reading). Meaning kept. Long sentence captured in full. | [15](screenshots/15.png) |
+| 15 | First I'll estimate the number of households, then how many own a car, then how often they fill up. | first I'll estimate the number of households then how many may own a car and then how often they fill up | Pass | Tester confirmed "may" and "and" were spoken. Long sentence captured in full. | [15](screenshots/15.png) |
 | 16 | If London has nine million people and one in ten uses the Tube daily, that's nine hundred thousand trips each way. | if London has 9 million people and one in 10 use the tube daily that's 900,000 trips each way | Pass | All three numbers correct: "9 million", "one in 10", "900,000". Minor grammar only ("use" for "uses", "tube" lower case). | [16](screenshots/16.png) |
 | 17 | Assuming each salon serves forty clients a week at thirty pounds each, that's twelve hundred pounds a week per salon. | assuming it's salons serves 40 clients a week at 30 pounds each that's 1200 pounds a week per salon | Minor | All three numbers correct: "40", "30 pounds", "1200 pounds". "each salon" misheard as "it's salons"; meaning still clear. | [17](screenshots/17.png) |
 | 18 | I'll segment by age: under eighteen, eighteen to sixty-four, and over sixty-five. | I'll segment by H I'll segment by age under 18 18 to 64 and over 65 | Minor | All numbers correct: "18", "18 to 64", "65". Opening phrase appears twice: first misheard ("age" as "H"), then corrected. With no punctuation, "under 18 18 to 64" is harder to read. | [18](screenshots/18.png) |
@@ -89,9 +89,9 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 | 1: Plain sentences | 4 | 0 | 0 |
 | 2: Numbers, money and percentages | 4 | 1 | 0 |
 | 3: Guesstimate vocabulary | 3 | 2 | 0 |
-| 4: Longer reasoning | 2 | 3 | 0 |
+| 4: Longer reasoning | 3 | 2 | 0 |
 | 5: Real-world messiness | 4 | 1 | 1 |
-| **Total** | **17** | **7** | **1** |
+| **Total** | **18** | **6** | **1** |
 
 - **Pass or Minor:** 24 of 25 (rule needs 20).
 - **Wrong numbers in Levels 2 to 4:** none.
