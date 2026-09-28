@@ -9,7 +9,7 @@ A phone-first web app for practising guesstimates, the estimation questions used
 The project is run as a small product, from discovery to delivery:
 
 - **Discovery:** user stories written against a story map of the practice journey (get nudged, choose a question, solve it, get feedback, track progress)
-- **Prioritisation:** story map slicing and MoSCoW, recorded with reasons in [docs/release-1-moscow.md](docs/release-1-moscow.md)
+- **Prioritisation:** story map slicing and MoSCoW, recorded with reasons in [docs/decisions/release-1-moscow.md](docs/decisions/release-1-moscow.md)
 - **Risk first:** time-boxed spikes resolve the open questions (problem archetypes, voice capture) before the build depends on them
 - **Delivery:** one-week iterations, tracked in the project board linked to this repository
 - **Built with AI:** developed with Claude Code; Release 2 adds AI feedback on reasoning
@@ -20,3 +20,14 @@ The project is run as a small product, from discovery to delivery:
 |---|---|
 | Release 1 | Choose a difficulty, answer by voice or typing, tap for hints, compare with a model structure, ballpark check, answer history |
 | Release 2 | AI-generated hints and feedback on reasoning |
+
+## Where things live
+
+| Folder | What goes there |
+|---|---|
+| `docs/decisions/` | Product decisions and their reasons |
+| `docs/reference/` | Rules the app follows, such as the problem archetypes |
+| `docs/spikes/` | One folder per spike: a `report.md` plus its evidence (data, screenshots) |
+| `prototypes/` | Throwaway experiments, kept apart from the app |
+
+When the app is built, its code will go in `app/` and the question bank in `data/`. Answers and history are saved in the browser, never in this repository.

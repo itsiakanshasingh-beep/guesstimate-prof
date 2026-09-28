@@ -28,7 +28,7 @@ The card planned a sample of about 30 problems. The spike labelled **all 107 sol
 4. **Blind check.** Two agents classified all 107 independently from the written definitions. They agreed on **105 of 107 (98%)**. The two splits were settled by the tie-break rule below.
 5. **Independent review.** Two further agents checked 30 problems against the original pages. 29 of 30 archetypes were confirmed; the difficulty rule was corrected as a result.
 
-The full labelled set is in [archetype-spike/labelled-problems.csv](archetype-spike/labelled-problems.csv). It holds question titles and labels only, not the casebooks' solutions.
+The full labelled set is in [labelled-problems.csv](../spikes/archetypes/labelled-problems.csv). It holds question titles and labels only, not the casebooks' solutions.
 
 ## The archetypes
 
