@@ -1,6 +1,6 @@
 # Guesstimate Trainer: build guide for Claude Code
 
-Read this before every task. The backlog lives in this repo's issues (epics with sub-issue stories, milestone "Release 1", due 18 October 2026). Decisions and reasons are in `docs/release-1-moscow.md`.
+Read this before every task. The backlog lives in this repo's issues (epics with sub-issue stories, milestone "Release 1", due 18 October 2026). Decisions and reasons are in `docs/decisions/release-1-moscow.md`. The README lists where each kind of file lives.
 
 ## What the app is
 
@@ -33,7 +33,7 @@ The owner is a Technical Business Analyst learning to build with Claude Code. Sh
 - **Guidance setting:** on means the user starts alone and taps for hints, revealed one per tap, in order; off means no hints. Record how many hints were used on each attempt. Release 2 AI prompts must respect this setting.
 - **Feedback:** structure first (model structure with a driver checklist). The number is judged only as right or wrong ballpark.
 - **Question data:** each question carries an id, text, difficulty (easy / medium / hard), archetype, an ordered list of hints, a model structure, and an optional benchmark answer with its source. The benchmark is optional so questions without a published answer can be added later without a rebuild.
-- **Archetypes and difficulty rules are not final.** They come from the archetype spike (`docs/archetypes.md` once written). Do not hard-code a list of archetypes into logic.
+- **Archetypes and difficulty rules are not final.** They come from the archetype spike (`docs/reference/archetypes.md`). Do not hard-code a list of archetypes into logic.
 - Keep the stack simple enough for the owner to read. Avoid heavy frameworks unless an issue calls for one.
 
 ## Writing style for any text (UI copy, docs, commit messages)
