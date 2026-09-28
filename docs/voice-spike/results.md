@@ -47,7 +47,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 |---|-----------|---------------|--------|-------|------------|
 | 5 | The UK has about sixty-seven million people. | the UK has about 67 million people | Pass | Number correct, written as "67 million" (digits plus word). "UK" capitalised. | [05](screenshots/05.png) |
 | 6 | Roughly two point five people live in each household. | roughly 2.5 people live in each household | Pass | Decimal correct: "two point five" became "2.5". | [06](screenshots/06.png) |
-| 7 | Around twenty percent of adults drink coffee every day. | | | | |
+| 7 | Around twenty percent of adults drink coffee every day. | around 20% of adults drink coffee every day | Pass | "twenty percent" became "20%", with the % symbol. | [07](screenshots/07.png) |
 | 8 | A cup of coffee costs about three pounds fifty. | | | | |
 | 9 | That gives us roughly one point two billion pounds a year. | | | | |
 
