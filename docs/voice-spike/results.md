@@ -160,7 +160,7 @@ Screenshots are saved as `screenshots/L1.png`, `screenshots/L2.png` and so on. T
 | # | Browser | Statement | What appeared | Rating | Notes | Screenshot |
 |---|---------|-----------|---------------|--------|-------|------------|
 | L1 | Chrome | **Repeat of 5:** The UK has about sixty-seven million people. | the UK has about 67 million people | Pass | Exact match, same as on the phone. | [L1](screenshots/L1.png) |
-| L2 | Chrome | **Repeat of 8:** A cup of coffee costs about three pounds fifty. | | | | |
+| L2 | Chrome | **Repeat of 8:** A cup of coffee costs about three pounds fifty. | a cup of coffee costs about £3.50 | Pass | Money written as "£3.50" with the £ symbol. Better than the phone, which gave "three pound 50" (statement 8). | [L2](screenshots/L2.png) |
 | L3 | Chrome | **Repeat of R4:** The UK has about sixty-seven million people... (wait 5 seconds) ...and roughly twenty-eight million households. | | | | |
 | L4 | Safari or Firefox | Open the test page. Expected: the button shows "Not supported" and is greyed out, with a message below it. | | | | |
 
@@ -188,3 +188,4 @@ Screenshots are saved as `screenshots/L1.png`, `screenshots/L2.png` and so on. T
 - During a long silence Chrome keeps stopping and the page keeps restarting it, so the phone beeps at regular intervals (tester's observation, R7b). Speech that starts too close to a restart is not captured, and the end of a number can be cut off ("5" instead of "500,000"). The user cannot see when a restart is about to happen, so this cannot be avoided by waiting. This looks like a limit of the browser's built-in speech recognition on Android rather than something the page can fully fix.
 - After the page was changed to keep unconfirmed (grey) words when Chrome stops, the full number came through after a 10-second pause (R7c, compared with R7 and R7b).
 - A "network" error appeared at the end of a long answer while the phone was on wifi (R8). The page treats this error as final and stops listening. It may be a brief connection drop to Google's speech service, which Chrome on Android uses behind the scenes.
+- Laptop Chrome formats spoken money properly ("£3.50" in L2), while Chrome on Android did not ("three pound 50" in statement 8). The same speech gives different text on different devices, so any later number reading must handle both forms.
