@@ -158,18 +158,38 @@
         setButton('listening');
       };
 
+      // Chrome on Android often resends the whole sentence so far as each new
+      // result ("there", "there about", "there about 67"...). If a piece starts
+      // with the previous piece, it replaces it instead of being added.
+      function startsWith(text, start) {
+        return text.toLowerCase().indexOf(start.toLowerCase()) === 0;
+      }
+
       recognition.onresult = function (event) {
-        var finalText = '';
+        var parts = [];
         var interimText = '';
         for (var i = 0; i < event.results.length; i++) {
-          var text = event.results[i][0].transcript;
+          var text = event.results[i][0].transcript.trim();
+          if (!text) continue;
           if (event.results[i].isFinal) {
-            finalText += text + ' ';
+            var last = parts[parts.length - 1];
+            if (last && startsWith(text, last)) {
+              parts[parts.length - 1] = text;
+            } else {
+              parts.push(text);
+            }
           } else {
-            interimText += text;
+            interimText += (interimText ? ' ' : '') + text;
           }
         }
-        showText(savedText + finalText, interimText);
+        // Hide the last confirmed piece if the grey text already repeats it.
+        var shown = parts.slice();
+        if (interimText && shown.length && startsWith(interimText, shown[shown.length - 1])) {
+          shown.pop();
+        }
+        var finalText = parts.length ? parts.join(' ') + ' ' : '';
+        var shownText = shown.length ? shown.join(' ') + ' ' : '';
+        showText(savedText + shownText, interimText);
         // Remember confirmed text so the next session adds to it.
         recognition.pendingText = finalText;
       };
