@@ -3,8 +3,8 @@
 Checks whether Chrome on Android can turn spoken guesstimate answers into accurate text.
 
 - **Test page:** https://itsiakanshasingh-beep.github.io/guesstimate-trainer/voice-test/
-- **Device:** Google Pixel 8 Pro, Android version _(to confirm)_
-- **Chrome version:** _(Chrome menu > Settings > About Chrome)_
+- **Device:** Google Pixel 8 Pro, Android 17
+- **Chrome version:** 153.0.8010.52
 - **Date tested:** 28 September 2026
 - **Tester:** _(name)_
 
