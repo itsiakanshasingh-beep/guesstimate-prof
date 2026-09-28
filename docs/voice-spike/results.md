@@ -59,7 +59,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 | 11 | I'll use a top-down approach, then check it bottom-up. | I will use a top down approach then check it bottom up | Pass | Words correct. Hyphens and comma dropped; "I'll" appeared as "I will". Meaning kept. | [11](screenshots/11.png) |
 | 12 | Let's assume a penetration rate of fifteen percent. | let's assume a penetration rate of 15% | Pass | Exact match. "penetration rate" recognised; "15%" with the % symbol. | [12](screenshots/12.png) |
 | 13 | The key drivers are price, volume and frequency. | the key drivers are prize volume and frequency | Minor | "price" misheard as "prize". A reader can still tell what was meant. Commas dropped. | [13](screenshots/13.png) |
-| 14 | Revenue equals number of customers times average spend. | revenue equals equals number of customers times average spend | Minor | "equals" appears twice. All other words correct. Cause not yet confirmed (see Findings). | [14](screenshots/14.png) |
+| 14 | Revenue equals number of customers times average spend. | revenue equals equals number of customers times average spend | Minor | "equals" appears twice. All other words correct. Tester not sure whether "equals" was said twice, so the cause is unconfirmed (see Findings). | [14](screenshots/14.png) |
 
 ### Level 4: Longer reasoning
 
