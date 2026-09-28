@@ -48,7 +48,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 | 5 | The UK has about sixty-seven million people. | the UK has about 67 million people | Pass | Number correct, written as "67 million" (digits plus word). "UK" capitalised. | [05](screenshots/05.png) |
 | 6 | Roughly two point five people live in each household. | roughly 2.5 people live in each household | Pass | Decimal correct: "two point five" became "2.5". | [06](screenshots/06.png) |
 | 7 | Around twenty percent of adults drink coffee every day. | around 20% of adults drink coffee every day | Pass | "twenty percent" became "20%", with the % symbol. | [07](screenshots/07.png) |
-| 8 | A cup of coffee costs about three pounds fifty. | | | | |
+| 8 | A cup of coffee costs about three pounds fifty. | a cup of coffee costs about three pound 50 | Minor | Value is recoverable, but not written as "£3.50". Mixed format: "three" as a word, "50" as digits, and "pounds" became "pound". | [08](screenshots/08.png) |
 | 9 | That gives us roughly one point two billion pounds a year. | | | | |
 
 ### Level 3: Guesstimate vocabulary
@@ -95,3 +95,4 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 - Numbers are written as digits ("one hundred" appears as "100"), which will make checking ballpark answers easier.
 - The repeated-words fix works on Chrome for Android (statement 1 showed no repeats).
 - Small numbers can stay as words ("two" in statement 4) while larger ones become digits ("100" in statement 1). Any later number checking must handle both.
+- Spoken money is not converted to a £ amount. "three pounds fifty" appeared as "three pound 50", mixing words and digits in one amount (statement 8).
