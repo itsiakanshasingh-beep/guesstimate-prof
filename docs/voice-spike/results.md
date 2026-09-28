@@ -77,7 +77,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 |---|-----------|---------------|--------|-------|------------|
 | 20 | **Hesitation:** So, um, I think it's, er, about five million. | so um I think there is a about 5 million | Minor | Number correct: "5 million". "um" kept as a word; "er" probably became "a"; "it's" became "there is". Meaning kept. | [20](screenshots/20.png) |
 | 21 | **Self-correction:** That's three million, sorry, thirty million. | that's 3 million sorry 30 million | Pass | Exact match. Both numbers correct. Both the wrong and corrected number are kept, as spoken. | [21](screenshots/21.png) |
-| 22 | **Long pause:** The number of petrol stations is... (wait 3 seconds) ...about eight thousand. | | | | |
+| 22 | **Long pause:** The number of petrol stations is... (wait 3 seconds) ...about eight thousand. | the number of petrol station is | Fail | Listening stopped during the pause and the button returned to "Tap to speak". The second half, including the number, was lost. | [22](screenshots/22.png) |
 | 23 | **Fast speech:** Population sixty-seven million, households twenty-eight million, car ownership seventy-seven percent. | | | | |
 | 24 | **Background noise:** repeat statement 5 with the TV on or in a café. | | | | |
 | 25 | **Repeated words:** Yes, yes, that's right. | | | | |
@@ -102,3 +102,4 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 - No punctuation is added, so lists of numbers run together ("under 18 18 to 64" in statement 18).
 - Filler sounds are typed as words ("um" kept, "er" probably shown as "a" in statement 20). They do not hide the number, but they add clutter to a spoken answer.
 - When a speaker corrects themselves, both numbers appear ("3 million sorry 30 million" in statement 21). A person reading it can follow, but any automatic number check would need to take the last number, not the first.
+- Chrome on Android stops listening by itself after a pause of about 3 seconds, even though the page asks it to keep listening. Anything said after the pause is lost (statement 22). Thinking pauses are normal in guesstimates, so the real app must restart listening automatically until the user taps stop.
