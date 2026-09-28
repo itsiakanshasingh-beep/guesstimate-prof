@@ -6,7 +6,7 @@ Checks whether Chrome on Android can turn spoken guesstimate answers into accura
 - **Device:** Google Pixel 8 Pro, Android 17
 - **Chrome version:** 153.0.8010.52
 - **Date tested:** 28 September 2026
-- **Tester:** _(name)_
+- **Tester:** Owner
 
 ## Outcome
 
