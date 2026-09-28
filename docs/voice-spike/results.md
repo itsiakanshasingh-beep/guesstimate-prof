@@ -132,5 +132,5 @@ Also note whether the phone beeps or the button flickers when listening restarts
 - Chrome on Android stops listening by itself after a pause of about 3 seconds, even though the page asks it to keep listening. Anything said after the pause is lost (statement 22). Thinking pauses are normal in guesstimates, so the real app must restart listening automatically until the user taps stop.
 - The pause fix works on Chrome for Android: after the page restarts listening, speech after a 3-second pause is kept (R1).
 - Because listening now only stops when tapped, the user must remember to tap stop. In the real app, submitting an answer should also stop listening.
-- The phone beeps when listening restarts. This is an Android system sound; a web page cannot switch it off. It may be distracting during a long answer (R4).
+- The phone beeps when listening restarts. The tester heard it just after finishing a phrase, at the start of the pause, which means Chrome stops as soon as speech ends rather than after a few seconds of silence. The beep is an Android system sound; a web page cannot switch it off. It may be distracting during a long answer (R4).
 - A word spoken just as listening restarts can be lost ("and" in R4), because there is a short gap between Chrome stopping and the page starting it again.
