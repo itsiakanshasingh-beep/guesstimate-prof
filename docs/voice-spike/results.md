@@ -5,7 +5,7 @@ Checks whether Chrome on Android can turn spoken guesstimate answers into accura
 - **Test page:** https://itsiakanshasingh-beep.github.io/guesstimate-trainer/voice-test/
 - **Device:** _(phone model and Android version)_
 - **Chrome version:** _(Chrome menu > Settings > About Chrome)_
-- **Date tested:** _(date)_
+- **Date tested:** 28 September 2026
 - **Tester:** _(name)_
 
 ## How to run each test
@@ -69,7 +69,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 | 16 | If London has nine million people and one in ten uses the Tube daily, that's nine hundred thousand trips each way. | if London has 9 million people and one in 10 use the tube daily that's 900,000 trips each way | Pass | All three numbers correct: "9 million", "one in 10", "900,000". Minor grammar only ("use" for "uses", "tube" lower case). | [16](screenshots/16.png) |
 | 17 | Assuming each salon serves forty clients a week at thirty pounds each, that's twelve hundred pounds a week per salon. | assuming it's salons serves 40 clients a week at 30 pounds each that's 1200 pounds a week per salon | Minor | All three numbers correct: "40", "30 pounds", "1200 pounds". "each salon" misheard as "it's salons"; meaning still clear. | [17](screenshots/17.png) |
 | 18 | I'll segment by age: under eighteen, eighteen to sixty-four, and over sixty-five. | I'll segment by H I'll segment by age under 18 18 to 64 and over 65 | Minor | All numbers correct: "18", "18 to 64", "65". Opening phrase appears twice: first misheard ("age" as "H"), then corrected. With no punctuation, "under 18 18 to 64" is harder to read. | [18](screenshots/18.png) |
-| 19 | Dividing fifty million by three hundred and sixty-five gives roughly one hundred and forty thousand a day. | | | | |
+| 19 | Dividing fifty million by three hundred and sixty-five gives roughly one hundred and forty thousand a day. | dividing 50 million by 365 gives roughly 140,000 a day | Pass | Exact match. All three numbers correct: "50 million", "365", "140,000". | [19](screenshots/19.png) |
 
 ### Level 5: Real-world messiness
 
@@ -84,10 +84,18 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 
 ## Summary
 
-- **Pass:** _(count)_
-- **Minor:** _(count)_
-- **Fail:** _(count)_
-- **Spike result:** _(pass or fail against the rule above)_
+| Level | Pass | Minor | Fail |
+|-------|------|-------|------|
+| 1: Plain sentences | 4 | 0 | 0 |
+| 2: Numbers, money and percentages | 4 | 1 | 0 |
+| 3: Guesstimate vocabulary | 3 | 2 | 0 |
+| 4: Longer reasoning | 2 | 3 | 0 |
+| 5: Real-world messiness | 4 | 1 | 1 |
+| **Total** | **17** | **7** | **1** |
+
+- **Pass or Minor:** 24 of 25 (rule needs 20).
+- **Wrong numbers in Levels 2 to 4:** none.
+- **Spike result (proposed):** passes the rule, with one condition. Listening stops by itself after a pause (statement 22), so the real app must restart listening automatically until the user taps stop.
 
 ## Findings
 
