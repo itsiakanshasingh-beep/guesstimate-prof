@@ -76,7 +76,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 | # | Statement | What appeared | Rating | Notes | Screenshot |
 |---|-----------|---------------|--------|-------|------------|
 | 20 | **Hesitation:** So, um, I think it's, er, about five million. | so um I think there is a about 5 million | Minor | Number correct: "5 million". "um" kept as a word; "er" probably became "a"; "it's" became "there is". Meaning kept. | [20](screenshots/20.png) |
-| 21 | **Self-correction:** That's three million, sorry, thirty million. | | | | |
+| 21 | **Self-correction:** That's three million, sorry, thirty million. | that's 3 million sorry 30 million | Pass | Exact match. Both numbers correct. Both the wrong and corrected number are kept, as spoken. | [21](screenshots/21.png) |
 | 22 | **Long pause:** The number of petrol stations is... (wait 3 seconds) ...about eight thousand. | | | | |
 | 23 | **Fast speech:** Population sixty-seven million, households twenty-eight million, car ownership seventy-seven percent. | | | | |
 | 24 | **Background noise:** repeat statement 5 with the TV on or in a café. | | | | |
@@ -101,3 +101,4 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 - When Chrome corrects a misheard phrase, both the wrong and corrected versions can stay in the text ("I'll segment by H I'll segment by age" in statement 18). The repeat filter only removes a new piece that starts with exactly the previous piece, so a correction slips through. Together with statement 14, this suggests the filter needs to handle overlaps and corrections.
 - No punctuation is added, so lists of numbers run together ("under 18 18 to 64" in statement 18).
 - Filler sounds are typed as words ("um" kept, "er" probably shown as "a" in statement 20). They do not hide the number, but they add clutter to a spoken answer.
+- When a speaker corrects themselves, both numbers appear ("3 million sorry 30 million" in statement 21). A person reading it can follow, but any automatic number check would need to take the last number, not the first.
