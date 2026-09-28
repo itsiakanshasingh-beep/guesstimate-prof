@@ -67,7 +67,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 |---|-----------|---------------|--------|-------|------------|
 | 15 | First I'll estimate the number of households, then how many own a car, then how often they fill up. | first I'll estimate the number of households then how many may own a car and then how often they fill up | Minor | Extra words "may" and "and" (possibly spoken naturally while reading). Meaning kept. Long sentence captured in full. | [15](screenshots/15.png) |
 | 16 | If London has nine million people and one in ten uses the Tube daily, that's nine hundred thousand trips each way. | if London has 9 million people and one in 10 use the tube daily that's 900,000 trips each way | Pass | All three numbers correct: "9 million", "one in 10", "900,000". Minor grammar only ("use" for "uses", "tube" lower case). | [16](screenshots/16.png) |
-| 17 | Assuming each salon serves forty clients a week at thirty pounds each, that's twelve hundred pounds a week per salon. | | | | |
+| 17 | Assuming each salon serves forty clients a week at thirty pounds each, that's twelve hundred pounds a week per salon. | assuming it's salons serves 40 clients a week at 30 pounds each that's 1200 pounds a week per salon | Minor | All three numbers correct: "40", "30 pounds", "1200 pounds". "each salon" misheard as "it's salons"; meaning still clear. | [17](screenshots/17.png) |
 | 18 | I'll segment by age: under eighteen, eighteen to sixty-four, and over sixty-five. | | | | |
 | 19 | Dividing fifty million by three hundred and sixty-five gives roughly one hundred and forty thousand a day. | | | | |
 
