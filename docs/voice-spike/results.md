@@ -152,7 +152,7 @@ Also note whether the phone beeps or the button flickers when listening restarts
 
 The app must also work in a laptop browser, because recruiters will open the link there. This checks voice in Chrome on a laptop, and the "not supported" message in a browser without speech recognition.
 
-- **Laptop and operating system:** _(for example, MacBook, macOS 15)_
+- **Laptop and operating system:** Lenovo ThinkPad (Intel Core i5-10310U), Windows 11 Pro 23H2
 - **Chrome version:** 153.0.8010.54 (Official Build) (64-bit)
 
 Screenshots are saved as `screenshots/L1.png`, `screenshots/L2.png` and so on. Take each screenshot after tapping stop.
