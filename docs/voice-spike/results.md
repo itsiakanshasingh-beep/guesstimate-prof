@@ -8,6 +8,22 @@ Checks whether Chrome on Android can turn spoken guesstimate answers into accura
 - **Date tested:** 28 September 2026
 - **Tester:** _(name)_
 
+## Outcome
+
+**Decision: pass with conditions** (decided 28 September 2026).
+
+Voice answering stays in Release 1. Numbers came through reliably, which matters most for guesstimates. The weak spots are known and have workarounds.
+
+Conditions for building voice into the app:
+
+1. The typed answer is always available. Voice is never the only way to answer.
+2. Listening continues through pauses until the user stops it, and keeps unconfirmed words when Chrome stops (as on the test page).
+3. A clear visual cue shows when the app is ready to listen again after a pause, because words spoken during a restart are lost.
+4. Submitting an answer stops listening.
+5. The user can review and edit the text before submitting.
+6. If a connection error stops listening, the app says so plainly and keeps the text captured so far.
+7. If numbers are ever read from spoken text automatically, the reading must handle words and digits mixed together ("three pound 50") and take the last number after a self-correction.
+
 ## How to run each test
 
 1. Tap **Clear text**.
@@ -95,7 +111,7 @@ The spike passes if at least 20 of 25 statements are rated Pass or Minor, and no
 
 - **Pass or Minor:** 24 of 25 (rule needs 20).
 - **Wrong numbers in Levels 2 to 4:** none.
-- **Spike result (proposed):** passes the rule, with one condition. Listening stops by itself after a pause (statement 22), so the real app must restart listening automatically until the user taps stop.
+- **Spike result:** passes the rule. The pause problem in statement 22 was fixed and retested (see below). Final decision: pass with conditions (see Outcome).
 
 ## Retest after pause fix
 
