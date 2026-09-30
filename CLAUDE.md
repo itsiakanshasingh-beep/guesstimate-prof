@@ -32,6 +32,7 @@ The owner is a Technical Business Analyst learning to build with Claude Code. Sh
 - **Prompt source must be swappable.** The hint and prompt screen must not care whether the next prompt comes from a written script (Release 1) or from the AI (Release 2). Keep that behind one small interface.
 - **Guidance setting:** on means the user starts alone and taps for hints, revealed one per tap, in order; off means no hints. Record how many hints were used on each attempt. Release 2 AI prompts must respect this setting.
 - **Feedback:** structure first (model structure with a driver checklist). The number is judged only as right or wrong ballpark.
+- **Screens:** follow `docs/design/screens.md`.
 - **Question data:** each question carries an id, text, difficulty (easy / medium / hard), archetype, an ordered list of hints, a model structure, and an optional benchmark answer with its source. The benchmark is optional so questions without a published answer can be added later without a rebuild.
 - **Archetypes and difficulty rules are not final.** They come from the archetype spike (`docs/reference/archetypes.md`). Do not hard-code a list of archetypes into logic.
 - Keep the stack simple enough for the owner to read. Avoid heavy frameworks unless an issue calls for one.
