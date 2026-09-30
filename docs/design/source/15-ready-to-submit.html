@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Answer, ready to submit</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;background:#F6F5F2;color:#1C1C1A}
+button,input,textarea{font:inherit;color:inherit}
+.gp-hit{position:relative}.gp-hit::after{content:"";position:absolute;left:-8px;right:-8px;top:-15px;bottom:-15px}
+a{color:#1C1C1A}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; background: #F6F5F2; display: flex; flex-direction: column; overflow: hidden">
+<div style="flex: none; padding: 12px 16px 0">
+<button type="button" aria-label="Show full question" aria-expanded="false" style="display: flex; align-items: center; gap: 10px; width: 100%; height: 52px; box-sizing: border-box; padding: 0 12px 0 10px; background: #FFFFFF; border: 1px solid #DDD9D1; border-radius: 14px; text-align: left; cursor: pointer">
+<span style="flex: none; display: flex; align-items: center; gap: 6px; background: #EFEDE8; border-radius: 999px; padding: 4px 10px 4px 8px; font-size: 13px; font-weight: 700; color: #3E3C38"><span aria-hidden="true" style="display: flex; align-items: flex-end; gap: 2px; height: 10px"><span style="width: 3px; height: 5px; background: #3E3C38; border-radius: 1px"></span><span style="width: 3px; height: 8px; background: #3E3C38; border-radius: 1px"></span><span style="width: 3px; height: 10px; background: #3E3C38; border-radius: 1px"></span></span>Hard</span>
+<span style="flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px; font-weight: 700">Estimate the number of Swiggy drivers in Mumbai</span>
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3E3C38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+</div>
+<div style="flex-grow: 1; min-height: 0; overflow: hidden; padding: 12px 16px">
+<div aria-label="Your working" style="box-sizing: border-box; background: #FFFFFF; border: 1.5px solid #CFCAC0; border-radius: 16px; padding: 14px 16px 12px; font-size: 17px; line-height: 1.5">
+<button type="button" class="gp-hit" aria-label="Show prompt: Have you decided what counts as one driver?" style="display: flex; align-items: center; gap: 6px; padding: 0; background: transparent; border: 0; font-size: 13px; font-weight: 700; color: #67645E; cursor: pointer"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>One unit</button>
+<div>driver = on the app at lunch peak</div>
+<button type="button" class="gp-hit" aria-label="Show prompt: Have you built total demand with a funnel?" style="display: flex; align-items: center; gap: 6px; margin-top: 8px; padding: 0; background: transparent; border: 0; font-size: 13px; font-weight: 700; color: #67645E; cursor: pointer"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>Total demand</button>
+<div>mumbai 20m, ~4m order food online</div>
+<div>~1.5m orders/day, swiggy ~45% = 700k</div>
+<button type="button" class="gp-hit" aria-label="Show prompt: Have you worked out what one driver handles?" style="display: flex; align-items: center; gap: 6px; margin-top: 8px; padding: 0; background: transparent; border: 0; font-size: 13px; font-weight: 700; color: #67645E; cursor: pointer"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>One driver</button>
+<div>3 orders/hr at peak, with batching</div>
+<button type="button" class="gp-hit" aria-label="Show prompt: Have you divided demand by what one driver handles?" style="display: flex; align-items: center; gap: 6px; margin-top: 8px; padding: 0; background: transparent; border: 0; font-size: 13px; font-weight: 700; color: #67645E; cursor: pointer"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>Divide</button>
+<div>lunch = 25% of orders in 2 hrs</div>
+<div>700k x .25 / 2 = 87k orders/hr</div>
+<div>87k / 3 = ~29k drivers</div>
+<button type="button" class="gp-hit" aria-label="Show prompt: Have you sanity-checked against a known figure?" style="display: flex; align-items: center; gap: 6px; margin-top: 8px; padding: 0; background: transparent; border: 0; font-size: 13px; font-weight: 700; color: #67645E; cursor: pointer"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>Sanity check</button>
+<div>~10 per restaurant zone? feels ok</div>
+<div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px">
+<div aria-label="Nudges you'd already covered" style="display: flex; gap: 6px; flex-wrap: wrap">
+<span style="display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px 0 8px; border-radius: 15px; background: #EFEDE8; border: 1px solid #DDD9D1; font-size: 13px; font-weight: 700; color: #3E3C38"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Rush vs average, covered</span>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between">
+<div style="display: flex; align-items: center; gap: 10px">
+<button type="button" aria-disabled="true" style="display: flex; align-items: center; gap: 8px; height: 48px; padding: 0 16px 0 12px; background: #F3F2EE; border: 1px solid #E4E1DA; border-radius: 22px; font-size: 15px; font-weight: 700; color: #8A867E"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>Nudge me</button>
+<span style="font-size: 14px; color: #5E5B55">All shown</span>
+</div>
+<button type="button" aria-label="Speak your working" style="width: 48px; height: 48px; border-radius: 24px; background: #EFEDE8; border: 1px solid #DDD9D1; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></svg></button>
+</div>
+</div>
+</div>
+</div>
+<div style="flex: none; box-sizing: border-box; padding: 10px 16px 28px; background: #F6F5F2; border-top: 1px solid #DDD9D1; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><label for="v2-est-9" style="font-size: 14px; font-weight: 700">Your estimate</label><span style="font-size: 14px; color: #5E5B55">29 thousand drivers</span></div>
+<div style="display: flex; gap: 10px">
+<div style="flex-grow: 1; min-width: 0; display: flex; align-items: center; gap: 6px; height: 52px; box-sizing: border-box; background: #FFFFFF; border: 1.5px solid #CFCAC0; border-radius: 14px; padding: 0 14px"><input id="v2-est-9" type="text" inputmode="numeric" value="29,000" style="flex-grow: 1; min-width: 0; border: 0; outline: none; background: transparent; font-size: 18px; font-weight: 700"><span style="font-size: 16px; color: #5E5B55">drivers</span></div>
+<a href="v2-III1-results-tick.dc.html" style="flex: none; width: 112px; height: 52px; border-radius: 14px; background: {{accent}}; color: #FFFFFF; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none">Submit</a>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1D6B63"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#1D6B63' };
+}
+}
+</script>
+</body>
+</html>

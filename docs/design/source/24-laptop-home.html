@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Today, laptop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;background:#F6F5F2;color:#1C1C1A}
+button,input,textarea{font:inherit;color:inherit}
+a{color:#1C1C1A}a:hover{color:#1D6B63}
+</style>
+</helmet>
+<div style="width: 1280px; height: 800px; background: #F6F5F2; display: flex; flex-direction: column; overflow: hidden">
+<header style="flex: none; height: 72px; box-sizing: border-box; padding: 0 80px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E4E1DA">
+<span style="font-size: 24px; font-weight: 700; letter-spacing: -0.01em; color: {{accent}}">guesstimate professor</span>
+<a href="L5-history-laptop.dc.html" style="display: flex; align-items: center; height: 48px; padding: 0 8px; font-size: 17px; font-weight: 700; text-underline-offset: 3px">History</a>
+</header>
+<main style="flex-grow: 1; min-height: 0; box-sizing: border-box; padding: 72px 80px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 96px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h1 style="margin: 0; font-size: 52px; line-height: 1.1; font-weight: 700">Method first,<br>number second.</h1>
+<p style="margin: 0; max-width: 500px; font-size: 20px; line-height: 1.5; color: #3E3C38">Guesstimate Professor trains you to estimate any unknown number with a clear structure, the way interviewers judge it: method first, number second.</p>
+</div>
+<section aria-label="How it works" style="display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 700; color: #5E5B55">How it works</h2>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px">
+<li style="display: flex; gap: 14px; align-items: flex-start; font-size: 18px; line-height: 1.45"><span style="flex: none; width: 30px; height: 30px; border-radius: 15px; background: #EFEDE8; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><span>Pick a difficulty. You get one question.</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start; font-size: 18px; line-height: 1.45"><span style="flex: none; width: 30px; height: 30px; border-radius: 15px; background: #EFEDE8; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><span>Work it out in your own words, typed or spoken. Ask for a nudge if you're stuck.</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start; font-size: 18px; line-height: 1.45"><span style="flex: none; width: 30px; height: 30px; border-radius: 15px; background: #EFEDE8; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><span>Tick off the model structure, then see if your number is in the right ballpark.</span></li>
+</ol>
+</section>
+</div>
+<section aria-label="Start a question" style="background: #FFFFFF; border: 1px solid #DDD9D1; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 28px">
+<div role="group" aria-labelledby="l-diff" style="display: flex; flex-direction: column; gap: 12px">
+<span id="l-diff" style="font-size: 16px; font-weight: 700">Difficulty</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<button type="button" aria-pressed="false" style="height: 56px; background: #FFFFFF; border: 1.5px solid #CFCAC0; border-radius: 14px; font-size: 17px; font-weight: 700; cursor: pointer">Easy</button>
+<button type="button" aria-pressed="true" style="height: 56px; background: #1C1C1A; border: 1.5px solid #1C1C1A; border-radius: 14px; color: #FFFFFF; font-size: 17px; font-weight: 700; cursor: pointer">Medium</button>
+<button type="button" aria-pressed="false" style="height: 56px; background: #FFFFFF; border: 1.5px solid #CFCAC0; border-radius: 14px; font-size: 17px; font-weight: 700; cursor: pointer">Hard</button>
+</div>
+<span style="font-size: 15px; line-height: 1.4; color: #5E5B55">Medium: a longer build, or one catch to spot.</span>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid #E7E4DE; border-bottom: 1px solid #E7E4DE">
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px">
+<span id="l-guide" style="font-size: 17px; font-weight: 700">Coach nudges</span>
+<span style="font-size: 15px; line-height: 1.4; color: #5E5B55">Tap for a hint when stuck. Turn off to practise like the interview.</span>
+</div>
+<button type="button" role="switch" aria-checked="true" aria-labelledby="l-guide" style="flex: none; width: 64px; height: 48px; padding: 7px 4px; box-sizing: border-box; border: 0; background: transparent; display: flex; cursor: pointer"><span style="flex-grow: 1; padding: 3px; box-sizing: border-box; border-radius: 17px; background: {{accent}}; display: flex; justify-content: flex-end"><span style="width: 28px; height: 28px; border-radius: 14px; background: #FFFFFF"></span></span></button>
+</div>
+<a href="L2-answer-laptop.dc.html" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 14px; background: {{accent}}; color: #FFFFFF; font-size: 18px; font-weight: 700; text-decoration: none">Start a question</a>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1D6B63"},"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#1D6B63' };
+}
+}
+</script>
+</body>
+</html>

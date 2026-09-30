@@ -4,6 +4,7 @@ Last updated: 30 September 2026 · Issue #25
 
 - **Source:** [Claude Design canvas](https://claude.ai/artifact/ArMaH5CoVB2hun6mnBaFV2), page "End-to-end flow v2". The canvas is the master copy; the images below are a snapshot of it.
 - **Size:** phone, 390 × 844, plus a laptop view at 1280 px wide. Images are exported at twice that size.
+- **Style:** colours, font, sizes and shared pieces are in `style.md`. Each screen's code is in `source/`, named to match the images (see `source/README.md` before using it).
 - **Sample question:** "Estimate the number of Swiggy drivers in Mumbai" (Hard, Demand over supply).
 
 ## Design principles
