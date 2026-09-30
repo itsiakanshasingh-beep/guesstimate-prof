@@ -1,4 +1,4 @@
-# Guesstimate Trainer: build guide for Claude Code
+# Guesstimate Professor: build guide for Claude Code
 
 Read this before every task. The backlog lives in this repo's issues (epics with sub-issue stories, milestone "Release 1", due 18 October 2026). Decisions and reasons are in `docs/decisions/release-1-moscow.md`. The README lists where each kind of file lives.
 
@@ -41,3 +41,4 @@ The owner is a Technical Business Analyst learning to build with Claude Code. Sh
 - UK English.
 - No em dashes.
 - Plain, precise sentences. No filler.
+- App name: the wordmark "guesstimate professor" is always lower case; in sentences write "Guesstimate Professor".
