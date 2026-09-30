@@ -3,7 +3,7 @@
 Last updated: 30 September 2026 · Issue #25
 
 - **Source:** [Claude Design canvas](https://claude.ai/artifact/ArMaH5CoVB2hun6mnBaFV2), page "End-to-end flow v2". The canvas is the master copy; the images below are a snapshot of it.
-- **Size:** phone, 390 × 844. Images are exported at twice that size.
+- **Size:** phone, 390 × 844, plus a laptop view at 1280 px wide. Images are exported at twice that size.
 - **Sample question:** "Estimate the number of Swiggy drivers in Mumbai" (Hard, Demand over supply).
 
 ## Design principles
@@ -71,6 +71,20 @@ The three outcomes below are the same attempt (8 of 9 steps, 89%) with a differe
 |---|---|
 | ![History](images/22-history.png) | ![History, empty](images/23-history-empty.png) |
 | Attempts and average structure score by archetype. | Explains what will appear here. |
+
+### Laptop (1280 px)
+
+Recruiters may open the link on a laptop. The same screens use the extra width instead of a stretched phone column.
+
+| Home | Answer |
+|---|---|
+| ![Laptop home](images/24-laptop-home.png) | ![Laptop answer](images/25-laptop-answer.png) |
+| Introduction on the left; difficulty, Coach nudges and Start on the right. | Question, nudges and estimate on the left; the working area fills the right. |
+
+| Tick your structure | Result | History |
+|---|---|---|
+| ![Laptop tick your structure](images/26-laptop-results-tick.png) | ![Laptop result](images/27-laptop-results-off.png) | ![Laptop history](images/28-laptop-history.png) |
+| Checklist beside the archetype and the user's working. | Structure and number side by side with feedback, missed items and archetype. | By archetype beside a table of attempts. |
 
 ## Decisions
 
