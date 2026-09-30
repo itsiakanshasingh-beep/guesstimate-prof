@@ -1,4 +1,4 @@
-# Guesstimate Trainer
+# guesstimate professor
 
 A phone-first web app for practising guesstimates, the estimation questions used in consulting and product interviews. It serves one question at a time, offers hints on request, and gives feedback on the structure of your answer, not just the final number.
 
