@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>History, empty</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;background:#F6F5F2;color:#1C1C1A}
+button,input,textarea{font:inherit;color:inherit}
+a{color:#1C1C1A}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; background: #F6F5F2; display: flex; flex-direction: column; overflow: hidden">
+<div style="flex: none; display: flex; align-items: center; gap: 4px; padding: 8px 12px 4px 4px">
+<a href="v2-I1-home-first.dc.html" aria-label="Back to home" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></a>
+<h1 style="margin: 0; font-size: 22px; font-weight: 700">History</h1>
+</div>
+<div style="flex-grow: 1; box-sizing: border-box; padding: 24px 28px 120px; display: flex; flex-direction: column; justify-content: center; gap: 12px">
+<h2 style="margin: 0; font-size: 22px; line-height: 1.3; font-weight: 700">No attempts yet</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3E3C38">Each question you finish shows up here with your structure score, how close your number was, and how many hints you used. Once you've done a few, you'll see how you do on each type of question.</p>
+<a href="v2-I1-home-first.dc.html" style="margin-top: 12px; height: 56px; border-radius: 14px; background: {{accent}}; color: #FFFFFF; font-size: 17px; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none">Start a question</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1D6B63"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#1D6B63' };
+}
+}
+</script>
+</body>
+</html>

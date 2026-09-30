@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Results, checking against your working</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;background:#F6F5F2;color:#1C1C1A}
+button,input,textarea{font:inherit;color:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; position: relative; background: #F6F5F2; overflow: hidden">
+<div aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; box-sizing: border-box; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; line-height: 1.4; color: #5E5B55">Hard · Estimate the number of Swiggy drivers in Mumbai</p>
+<div style="font-size: 24px; line-height: 1.25; font-weight: 700">Tick what your working covered</div>
+</div>
+<div style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: rgba(28, 28, 26, 0.45)"></div>
+<section role="dialog" aria-modal="true" aria-labelledby="v2-work-title" style="position: absolute; left: 0; right: 0; bottom: 0; top: 112px; background: #FFFFFF; border-radius: 20px 20px 0 0; display: flex; flex-direction: column">
+<div style="flex: none; display: flex; align-items: center; justify-content: space-between; padding: 8px 8px 4px 20px; border-bottom: 1px solid #E7E4DE">
+<h2 id="v2-work-title" style="margin: 0; font-size: 18px; font-weight: 700">Your working</h2>
+<button type="button" aria-label="Close" style="width: 48px; height: 48px; background: transparent; border: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div style="flex-grow: 1; min-height: 0; overflow: hidden; padding: 14px 20px; font-size: 17px; line-height: 1.5">
+<div style="font-size: 13px; font-weight: 700; color: #67645E">One unit</div>
+<div>driver = on the app at lunch peak</div>
+<div style="margin-top: 8px; font-size: 13px; font-weight: 700; color: #67645E">Total demand</div>
+<div>mumbai 20m, ~4m order food online</div>
+<div>~1.5m orders/day, swiggy ~45% = 700k</div>
+<div style="margin-top: 8px; font-size: 13px; font-weight: 700; color: #67645E">One driver</div>
+<div>3 orders/hr at peak, with batching</div>
+<div style="margin-top: 8px; font-size: 13px; font-weight: 700; color: #67645E">Divide</div>
+<div>lunch = 25% of orders in 2 hrs</div>
+<div>700k x .25 / 2 = 87k orders/hr</div>
+<div>87k / 3 = ~29k drivers</div>
+<div style="margin-top: 8px; font-size: 13px; font-weight: 700; color: #67645E">Sanity check</div>
+<div>~10 per restaurant zone? feels ok</div>
+<div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid #E7E4DE; display: flex; justify-content: space-between; font-size: 16px"><span style="color: #5E5B55">Your estimate</span><span style="font-weight: 700">29,000 drivers</span></div>
+<div style="margin-top: 4px; display: flex; justify-content: space-between; font-size: 16px"><span style="color: #5E5B55">Nudges shown</span><span style="font-weight: 700">6</span></div>
+<div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap">
+<span style="display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px 0 8px; border-radius: 15px; background: #EFEDE8; border: 1px solid #DDD9D1; font-size: 13px; font-weight: 700; color: #3E3C38"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Rush vs average, covered</span>
+</div>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1D6B63"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#1D6B63' };
+}
+}
+</script>
+</body>
+</html>
