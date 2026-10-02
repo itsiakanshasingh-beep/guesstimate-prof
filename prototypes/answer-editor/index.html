@@ -256,6 +256,8 @@
     }
     body.kb.focus-working .estimate, body.voice .estimate { display: none; }
     body.submitted .estimate { position: static; }
+    /* Room to scroll the working clear of the voice bar. */
+    body.voice main { padding-bottom: calc(var(--dock-h) + 16px); }
     .erow1 { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
     .elabel { font-size: 15px; font-weight: 700; }
     .easked { font-size: 14px; color: var(--text-2); text-align: right; }
@@ -460,15 +462,21 @@
     var mirror = document.createElement('div');
     mirror.style.cssText = 'position:absolute;left:-9999px;top:0;visibility:hidden;white-space:pre-wrap;overflow-wrap:break-word;font-size:17px;line-height:1.5;padding:4px 0;';
     document.body.appendChild(mirror);
-    function keepCaretVisible(box) {
-      if (document.activeElement !== box) return;
+    // pos: where to measure to. Typing uses the cursor; voice passes the end of its words.
+    function keepCaretVisible(box, pos) {
+      if (pos == null) {
+        if (document.activeElement !== box) return;
+        pos = box.selectionEnd;
+      }
       mirror.style.width = box.clientWidth + 'px';
       mirror.style.fontFamily = getComputedStyle(box).fontFamily;
-      mirror.textContent = box.value.slice(0, box.selectionEnd) + '\u200b';
+      mirror.textContent = box.value.slice(0, pos) + '\u200b';
       var caretBottom = box.getBoundingClientRect().top + mirror.offsetHeight - 4;
-      var tools = document.getElementById('tools').getBoundingClientRect();
-      var limit = tools.top - 12;
-      if (caretBottom > limit) window.scrollBy(0, caretBottom - limit);
+      keepAboveTools(caretBottom);
+    }
+    function keepAboveTools(bottom) {
+      var limit = document.getElementById('tools').getBoundingClientRect().top - 12;
+      if (bottom > limit) window.scrollBy(0, bottom - limit);
     }
 
     function addSection(hint, source) {
@@ -705,11 +713,16 @@
         box.section.text = box.value;
         growBox(box);
         updateHintLook(box.section);
+        keepCaretVisible(box, caret);
       }
 
       function showInterim(text) {
         sections.forEach(function (s) { s.interim.textContent = ''; });
-        if (session && text) session.box.section.interim.textContent = text;
+        if (session && text) {
+          var line = session.box.section.interim;
+          line.textContent = text;
+          keepAboveTools(line.getBoundingClientRect().bottom);
+        }
       }
 
       // End the session: keep its words, including grey ones, in the box.
