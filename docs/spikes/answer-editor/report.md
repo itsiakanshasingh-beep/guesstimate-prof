@@ -38,6 +38,22 @@ Read this before testing, so you know what is meant to happen.
 
 Screenshots go in `screenshots/`, named by row number (for example `03.png`).
 
+## Empty hint boxes: four versions
+
+Added after testing row 3: each skipped hint left an empty box, so several nudges in a row made big gaps. Four ways of handling this, on one page with buttons to switch:
+https://itsiakanshasingh-beep.github.io/guesstimate-prof/prototypes/answer-editor/variants/
+
+All four also close the keyboard when the mic starts and show the target box straight away.
+
+| Version | What it does | What I liked | What I didn't |
+|---|---|---|---|
+| 1. As it is | Every hint you skip keeps its empty box | | |
+| 2. Box on demand | A hint has no box until you tap the card. An empty box closes when you move on | | |
+| 3. One open box | Only the newest hint keeps an empty box. Tap an older card to reopen its box | | |
+| 4. Fold any hint | Tap a hint heading to fold it shut or open it again | | |
+
+**Chosen version:**
+
 ## Findings
 
 **What works**
