@@ -447,8 +447,28 @@
     var ICON_TICK = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
 
     function growBox(box) {
+      var y = window.scrollY;
       box.style.height = 'auto';
       box.style.height = box.scrollHeight + 'px';
+      window.scrollTo(0, y);
+      keepCaretVisible(box);
+    }
+
+    // Keeps the line you are typing on just above the Nudge me bar.
+    // A hidden copy of the box, filled with the text up to the cursor,
+    // shows how far down the cursor is.
+    var mirror = document.createElement('div');
+    mirror.style.cssText = 'position:absolute;left:-9999px;top:0;visibility:hidden;white-space:pre-wrap;overflow-wrap:break-word;font-size:17px;line-height:1.5;padding:4px 0;';
+    document.body.appendChild(mirror);
+    function keepCaretVisible(box) {
+      if (document.activeElement !== box) return;
+      mirror.style.width = box.clientWidth + 'px';
+      mirror.style.fontFamily = getComputedStyle(box).fontFamily;
+      mirror.textContent = box.value.slice(0, box.selectionEnd) + '\u200b';
+      var caretBottom = box.getBoundingClientRect().top + mirror.offsetHeight - 4;
+      var tools = document.getElementById('tools').getBoundingClientRect();
+      var limit = tools.top - 12;
+      if (caretBottom > limit) window.scrollBy(0, caretBottom - limit);
     }
 
     function addSection(hint, source) {
@@ -599,6 +619,8 @@
       if (!open && was) { qbar.classList.remove('open'); }
       qcard.setAttribute('aria-expanded', !open || qbar.classList.contains('open'));
       updateDock();
+      var a2 = document.activeElement;
+      if (a2 && a2.tagName === 'TEXTAREA') keepCaretVisible(a2);
     }
     window.addEventListener('resize', checkKeyboard);
     if (window.visualViewport) window.visualViewport.addEventListener('resize', checkKeyboard);
