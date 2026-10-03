@@ -1,5 +1,7 @@
 # Guesstimate archetypes and how skill is measured
 
+> **Updated 3 October 2026:** archetypes now label solution paths, not questions; a question can have several paths, and "no archetype" is a valid label. The skill measure below is replaced by the rubric and answer range. See `docs/decisions/2026-10-03-ai-pivot.md`.
+
 **Spike:** #14 [SPIKE] Define guesstimate archetype
 **Date:** 28 September 2026 (due 29 September)
 **Decisions by:** Akansha Singh (product owner). Analysis supported by Claude.
@@ -152,6 +154,8 @@ One rule works for all three archetypes:
 | Demand over supply | not applicable | 3 | 8 |
 
 ## How skill is measured in R1
+
+> **Replaced on 3 October 2026** by the rubric (#51) and the calculated answer range (#50). Kept as a record.
 
 **Decision: both a structure checklist and a number check, with structure first.**
 
