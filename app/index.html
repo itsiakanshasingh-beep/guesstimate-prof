@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>guesstimate professor</title>
+<meta name="description" content="Practise guesstimates, one question at a time.">
+<meta name="theme-color" content="#F6F5F2">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top-bar">
+  <p class="wordmark">guesstimate professor</p>
+</header>
+<main class="page">
+  <section class="question-card" aria-labelledby="question-text">
+    <span class="tag" id="question-difficulty">
+      <span class="tag-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span id="question-difficulty-label"></span>
+    </span>
+    <h1 class="question" id="question-text"></h1>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
