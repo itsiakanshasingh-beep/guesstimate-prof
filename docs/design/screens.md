@@ -1,6 +1,6 @@
 # Screen designs (Release 1)
 
-> **Updated 3 October 2026:** layout, style and voice states still apply. Results screens 17 to 21 (tick your structure, 2x / 5x outcomes) and the scripted hint behaviour are replaced by AI grading and AI hints; new designs are parked in #58. See `docs/decisions/2026-10-03-ai-pivot.md`.
+> **Updated 3 October 2026:** layout, style and voice states still apply. Results screens 17 to 21 (tick your structure, 2x / 5x outcomes) and the scripted hint behaviour are replaced by AI grading and AI hints; new designs are parked in #58. See `docs/decisions/2026-10-03-release-2-ai-pivot.md`.
 
 Last updated: 30 September 2026 · Issue #25
 

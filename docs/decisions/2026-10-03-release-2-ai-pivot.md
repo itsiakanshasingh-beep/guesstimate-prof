@@ -29,6 +29,26 @@ One week each.
 | R4 Publish-ready | A finished piece recruiters can open and read | Public write-up of the build and evaluation; difficulty and skip; history | 19 to 25 Oct 2026 |
 | Parked | Not committed | Progress by rubric dimension, notifications, mock interviewer, reference figures shown to the user, more questions, monthly figure check, text turned into rows, screen redesign | Reviewed 25 Oct 2026 |
 
+## Release 2 plan (Iteration 2, 5 to 11 October 2026)
+
+About 40 hours of build. Agents work three streams in parallel, so the owner's time is mostly review and testing: about 20 to 25 hours.
+
+| Priority | Cards | Why |
+|---|---|---|
+| P0 | #48 Question file format, #51 Rubric with anchor examples, #47 Hosting and server spike | Everything else waits on these |
+| P1 | #49 Agent pipeline, #27 Prepare 8 ready questions, #50 Band calculation, #52 AI grader, #38 Answer in my own words | The main build, in three streams: content (#49, #27), grader (#50, #52), app (#38) |
+| P2 | #19 See how my structure was judged, #20 Check my number against the range, #53 Planted-errors check | The end of the chain; #53 is the done-when test |
+
+If the week runs short, cut inside cards rather than dropping one: voice in #38 falls back to typed only, and #20 uses a simple fixed range instead of the calculated one.
+
+Agreed details:
+
+- One release per week, and only the work that produces the most important parts.
+- 8 questions, not 16.
+- The grader reads free text directly; turning it into rows is parked.
+- One time limit for a result: 20 seconds, then a plain failure message. Streaming results is a candidate for the 25 October review.
+- A miss on the number shows both the direction and size of the miss and the range itself.
+
 ## Decisions
 
 1. **Archetypes belong to solution paths, not questions.** A question can have several paths; "no archetype" is a valid label.
@@ -63,4 +83,4 @@ New cards #47 to #59 cover the AI work.
 
 - The skill measure in `docs/reference/archetypes.md` (structure checklist plus 2x / 5x).
 - Results screens 17 to 21 and the scripted hint behaviour in `docs/design/screens.md`.
-- `docs/decisions/release-1-moscow.md` stays as the record of Release 1 planning.
+- `docs/decisions/2026-09-27-release-1-moscow.md` stays as the record of Release 1 planning.
