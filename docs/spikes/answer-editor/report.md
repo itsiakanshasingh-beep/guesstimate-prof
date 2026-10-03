@@ -53,7 +53,7 @@ All four also close the keyboard when the mic starts and show the target box str
 | 3. One open box | Only the newest hint keeps an empty box. Tap an older card to reopen its box | The open box shows where you are and where typing or voice will go; older empty hints tidy themselves away | The open box could feel like pressure when you only wanted to read the hint |
 | 4. Fold any hint | Tap a hint heading to fold it shut or open it again | Folded, the working becomes a list of headings: the structure at a glance | Folding is manual, one tap per hint. A folded answer still shows its first line in grey, so a one-line answer looks the same folded or open (`v4-short-folded.png`, `v4-short-open.png`). Works for long answers (`v4-long-folded.png`, `v4-long-open.png`) |
 
-**Chosen version:** 3, One open box (decided 3 October 2026). After a nudge the box is ready, so it is clear where you are and where typing or voice will go, and the screen stays tidy. Folding (version 4) was set aside: tidying hint by hint is manual work, and the results screen already shows the structure against a checklist. A single "show headings only" action, with no preview line, could be considered later.
+**Chosen version:** 3, One open box (decided 3 October 2026). After a nudge the box is ready, so it is clear where you are and where typing or voice will go, and the screen stays tidy. Folding from version 4 is kept on top of version 3 (decided 3 October 2026), so the working can be collapsed to its headings to see the structure. The first-line preview is dropped: a folded hint shows only its heading.
 
 ## Findings
 
@@ -76,11 +76,12 @@ All four also close the keyboard when the mic starts and show the target box str
 
 **Decision:** adjust (decided 3 October 2026)
 
-**Reason:** the stacked text boxes with fixed hint cards work and stay. Empty hint boxes behave as in version 3, the mic closes the keyboard, and the screen keeps the cursor and new words in view.
+**Reason:** the stacked text boxes with fixed hint cards work and stay. Empty hint boxes behave as in version 3, hints can be folded to their headings, the mic closes the keyboard, and the screen keeps the cursor and new words in view.
 
 **Changes to `docs/design/screens.md`** (to be made once the app shell (#26) is hosted, so the screens can be updated from the real app):
 
 - Skipped hints: only the newest hint keeps an empty box; older empty hints show as cards with "or tap to answer", and tapping one reopens its box.
+- Folding: tapping a hint heading folds or opens that hint; a folded hint shows only its heading.
 - Voice: starting the mic closes the keyboard and shows the box the words will go into.
 - Interim voice words show on a line under the box, not inline (a text box cannot mix grey and black text).
 - Already covered needs a way to undo.
