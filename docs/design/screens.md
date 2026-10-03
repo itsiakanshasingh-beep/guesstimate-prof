@@ -1,5 +1,7 @@
 # Screen designs (Release 1)
 
+> **Updated 3 October 2026:** layout, style and voice states still apply. Results screens 17 to 21 (tick your structure, 2x / 5x outcomes) and the scripted hint behaviour are replaced by AI grading and AI hints; new designs are parked in #58. See `docs/decisions/2026-10-03-ai-pivot.md`.
+
 Last updated: 30 September 2026 · Issue #25
 
 - **Source:** [Claude Design canvas](https://claude.ai/artifact/ArMaH5CoVB2hun6mnBaFV2), page "End-to-end flow v2". The canvas is the master copy; the images below are a snapshot of it.

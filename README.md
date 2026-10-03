@@ -1,8 +1,8 @@
 # guesstimate professor
 
-A phone-first web app for practising guesstimates, the estimation questions used in consulting and product interviews. It serves one question at a time, offers hints on request, and gives feedback on the structure of your answer, not just the final number.
+A phone-first web app for practising guesstimates, the estimation questions used in consulting and product interviews. You answer in your own words and AI judges your structure against reviewed solution paths, so any sound approach earns credit, not only the textbook one.
 
-**Status:** in development. Release 1 (the core practice journey) is due 18 October 2026.
+**Status:** in development. Release 1 closed early on 3 October 2026 when the plan moved to AI grading ([decision record](docs/decisions/2026-10-03-ai-pivot.md)). Release 2 is due 11 October 2026.
 
 ## How it is being built
 
@@ -12,14 +12,19 @@ The project is run as a small product, from discovery to delivery:
 - **Prioritisation:** story map slicing and MoSCoW, recorded with reasons in [docs/decisions/release-1-moscow.md](docs/decisions/release-1-moscow.md)
 - **Risk first:** time-boxed spikes resolve the open questions (problem archetypes, voice capture) before the build depends on them
 - **Delivery:** one-week iterations, tracked in the project board linked to this repository
-- **Built with AI:** developed with Claude Code; Release 2 adds AI feedback on reasoning
+- **Built with AI:** developed with Claude Code; questions, solution paths and answer ranges come from an agent pipeline (agents propose, a critic reviews, the owner approves)
+- **Evaluated:** the AI grader is tested against solutions with planted errors before it is trusted
 
 ## Releases
 
-| Release | Scope |
-|---|---|
-| Release 1 | Choose a difficulty, answer by voice or typing, tap for hints, compare with a model structure, ballpark check, answer history |
-| Release 2 | AI-generated hints and feedback on reasoning |
+One week each. Details in [docs/decisions/2026-10-03-ai-pivot.md](docs/decisions/2026-10-03-ai-pivot.md).
+
+| Release | Scope | Dates |
+|---|---|---|
+| Release 1 | Discovery and foundations: archetype, voice and answer editor spikes, screen designs, app shell. Closed early | Closed 3 Oct 2026 |
+| Release 2 | AI grading: answer in your own words, AI judges the structure, number checked against a range, grader tested with planted errors | 4 to 11 Oct 2026 |
+| Release 3 | Proof and help: repeatable grader test, disagreement review, AI hints | 12 to 18 Oct 2026 |
+| Release 4 | Publish-ready: evaluation write-up, difficulty and skip, history | 19 to 25 Oct 2026 |
 
 ## Where things live
 
@@ -30,4 +35,4 @@ The project is run as a small product, from discovery to delivery:
 | `docs/spikes/` | One folder per spike: a `report.md` plus its evidence (data, screenshots) |
 | `prototypes/` | Throwaway experiments, kept apart from the app |
 
-When the app is built, its code will go in `app/` and the question bank in `data/`. Answers and history are saved in the browser, never in this repository.
+The app's code is in `app/`; the question bank will go in `data/`, one file per question. Answers are never saved in this repository.
