@@ -83,4 +83,4 @@ New cards #47 to #59 cover the AI work.
 
 - The skill measure in `docs/reference/archetypes.md` (structure checklist plus 2x / 5x).
 - Results screens 17 to 21 and the scripted hint behaviour in `docs/design/screens.md`.
-- `docs/decisions/release-1-moscow.md` stays as the record of Release 1 planning.
+- `docs/decisions/2026-09-27-release-1-moscow.md` stays as the record of Release 1 planning.

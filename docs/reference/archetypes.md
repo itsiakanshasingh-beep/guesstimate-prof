@@ -1,6 +1,6 @@
 # Guesstimate archetypes and how skill is measured
 
-> **Updated 3 October 2026:** archetypes now label solution paths, not questions; a question can have several paths, and "no archetype" is a valid label. The skill measure below is replaced by the rubric and answer range. See `docs/decisions/2026-10-03-ai-pivot.md`.
+> **Updated 3 October 2026:** archetypes now label solution paths, not questions; a question can have several paths, and "no archetype" is a valid label. The skill measure below is replaced by the rubric and answer range. See `docs/decisions/2026-10-03-release-2-ai-pivot.md`.
 
 **Spike:** #14 [SPIKE] Define guesstimate archetype
 **Date:** 28 September 2026 (due 29 September)
