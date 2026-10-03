@@ -6,7 +6,7 @@ Checks whether a working area made of stacked text boxes, with fixed hint cards 
 - **Four versions page:** https://itsiakanshasingh-beep.github.io/guesstimate-prof/prototypes/answer-editor/variants/
 - **Device:** Android phone, Chrome
 - **Chrome version:**
-- **Laptop browser:** not tested yet
+- **Laptop browser:** moved to #38
 - **Date tested:** 2 and 3 October 2026
 - **Tester:** Owner
 
@@ -30,12 +30,12 @@ Read this before testing, so you know what is meant to happen.
 | 2 | Tap Nudge me, type under the hint | The card shrank to its short heading once text was typed | OK | `v3-newest-open.png` |
 | 3 | Tap Nudge me without answering the previous hint (empty section) | Each skipped hint kept an empty box, so several nudges in a row left big gaps and pushed the working off screen. Led to the four versions below | Problem | `03-gaps-four-nudges.png` |
 | 4 | Tap Already covered on a hint | The card disappeared and a chip appeared above Nudge me | OK | `v4-short-folded.png` |
-| 5 | Go back to an earlier box and edit it | | | |
+| 5 | Go back to an earlier box and edit it | Added a line to the One unit answer after nudging the next hint. Text went in at the cursor; the newest hint kept its open box | OK | `05-edit-earlier-box.png` |
 | 6 | Speak into a middle box | Spoken words and grey words went behind the Nudge me bar and the voice bar. Fixed. Then, with several hints open, the target box was off screen until the first words arrived, so the page jumped. Fixed in the four versions page: the mic closes the keyboard and shows the target box straight away | Problem, fixed | `06-voice-hidden-1.png`, `06-voice-hidden-2.png`, `06-voice-jump.png` |
-| 7 | Scroll the working with the keyboard open | | | |
-| 8 | Expand the question while typing | | | |
-| 9 | Enter an estimate and submit; check the saved data | | | |
-| 10 | Open on a laptop | | | |
+| 7 | Scroll the working with the keyboard open | Able to scroll the whole working with the keyboard open | OK | |
+| 8 | Expand the question while typing | Able to expand the full question while typing | OK | |
+| 9 | Enter an estimate and submit; check the saved data | Saved data matched the screen: sections in order, first box with hintId null, skipped hint saved with empty text, covered hints only in coveredHints, hintsUsed counted covered hints, estimate 10000 drivers | OK | |
+| 10 | Open on a laptop | Moved to #38, to test on the real answer screen | Not tested | |
 
 Screenshots go in `screenshots/`, named by row number (for example `03.png`).
 
@@ -70,7 +70,8 @@ All four also close the keyboard when the mic starts and show the target box str
 - With the keyboard open during voice, the target box was off screen (fixed by closing the keyboard when the mic starts).
 - Already covered cannot be undone. A mistaken tap loses the hint. The real build needs a way back, for example tapping the chip, or a short "Undo".
 - With the keyboard closed, the full question card takes about a fifth of the screen. To review when the real screen is built.
-- Not tested yet: laptop, and checklist rows 5, 7, 8, 9 and 10.
+- Not tested: laptop (moved to #38).
+- The saved data does not record whether an answer was typed or spoken. `source` records where the hint came from. Worth deciding before Release 2 feedback.
 
 ## Decision
 
@@ -78,7 +79,7 @@ All four also close the keyboard when the mic starts and show the target box str
 
 **Reason:** the stacked text boxes with fixed hint cards work and stay. Empty hint boxes behave as in version 3, hints can be folded to their headings, the mic closes the keyboard, and the screen keeps the cursor and new words in view.
 
-**Changes to `docs/design/screens.md`** (to be made once the app shell (#26) is hosted, so the screens can be updated from the real app):
+**Changes to `docs/design/screens.md`** (moved to #38, to be made from the real answer screen once the app shell (#26) is hosted):
 
 - Skipped hints: only the newest hint keeps an empty box; older empty hints show as cards with "or tap to answer", and tapping one reopens its box.
 - Folding: tapping a hint heading folds or opens that hint; a folded hint shows only its heading.
