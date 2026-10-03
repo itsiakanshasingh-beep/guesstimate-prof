@@ -1,6 +1,6 @@
 # Guesstimate Professor: build guide for Claude Code
 
-Read this before every task. The backlog lives in this repo's issues (epics with sub-issue stories), grouped by milestone: Release 2 (4 to 11 October 2026), Release 3 (12 to 18 October), Release 4 (19 to 25 October) and Parked. The current direction and its reasons are in `docs/decisions/2026-10-03-ai-pivot.md`; Release 1 planning is kept in `docs/decisions/release-1-moscow.md` as history. The README lists where each kind of file lives.
+Read this before every task. The backlog lives in this repo's issues (epics with sub-issue stories), grouped by milestone: Release 2 (4 to 11 October 2026), Release 3 (12 to 18 October), Release 4 (19 to 25 October) and Parked. The current direction and its reasons are in `docs/decisions/2026-10-03-release-2-ai-pivot.md`; Release 1 planning is kept in `docs/decisions/2026-09-27-release-1-moscow.md` as history. The README lists where each kind of file lives.
 
 ## What the app is
 
