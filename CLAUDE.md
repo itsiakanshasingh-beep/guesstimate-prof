@@ -33,7 +33,7 @@ The owner is a Technical Business Analyst learning to build with Claude Code. Sh
 - **Grading:** the grader judges the working against the question's reviewed solution paths and credits any sound path. It scores the rubric dimensions in `docs/reference/rubric.md` (from #51) and records the grader version with every grade.
 - **Number check:** the estimate is checked against the question's range, calculated in code from its driver ranges (#50). Questions with figures marked "assumption only" are checked against the user's stated assumption.
 - **Hints (Release 3):** on tap, one per tap, respecting the guidance setting; never give numbers. Rules are decided in #55.
-- **Question data:** one structured file per question (#48): id, text, unit, status with reason, provenance, structural difficulty, solution paths (each with an archetype or "no archetype", steps and a model solution), driver ranges, and figures with source and date. Only `ready` questions appear in the app.
+- **Question data:** one JSON file per question in `questions/`, following `docs/reference/question-format.md` (#48). Run `node scripts/check-questions.mjs` after changing any question file; a file that fails cannot become `ready`. Only `ready` questions appear in the app.
 - **Archetypes** belong to solution paths, not questions. Do not hard-code a list of archetypes into logic.
 - **Screens:** `docs/design/screens.md` still applies to layout, style and voice states. Results screens 17 to 21 and the scripted hint behaviour are replaced; follow the issue until new designs exist.
 - Keep the stack simple enough for the owner to read. Avoid heavy frameworks unless an issue calls for one.

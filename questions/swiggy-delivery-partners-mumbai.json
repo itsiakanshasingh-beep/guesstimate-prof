@@ -1,0 +1,193 @@
+{
+  "format_version": 1,
+  "id": "swiggy-delivery-partners-mumbai",
+  "question": "Estimate the number of Swiggy delivery partners in Mumbai.",
+  "status": "draft",
+  "status_reason": null,
+  "answer": {
+    "counts": "Swiggy delivery partners who completed at least one order in the month (monthly active)",
+    "unit": "delivery partners",
+    "alternatives": [
+      { "definition": "Daily active partners: delivered on a given day", "conversion": "about 0.6 times monthly active", "accepted": true },
+      { "definition": "Partners online at the evening peak", "conversion": "about 0.4 times monthly active", "accepted": true },
+      { "definition": "Registered partners, including dormant accounts", "conversion": "about 2.5 times monthly active, because churn is high", "accepted": true }
+    ]
+  },
+  "scope": {
+    "assumptions": [
+      "Mumbai means the urban agglomeration, about 2 crore people. Including the wider metropolitan region (Thane, Navi Mumbai, Kalyan) adds 25 to 40%.",
+      "Food delivery and Instamart share one partner pool, so both are counted.",
+      "An average month, not a festival or monsoon peak.",
+      "Partners on any vehicle count, including bicycles.",
+      "Partners who also ride for Zomato or others are counted once for Swiggy."
+    ]
+  },
+  "reference_date": "2026-10",
+  "bands": {
+    "good": { "low": 20000, "high": 60000 },
+    "acceptable": { "low": 10000, "high": 100000 },
+    "note": "Proposed from the two blind solvers in the format stress test (central answers 30,000 and 53,000 with the same method). To be replaced or checked by the calculated range from #50."
+  },
+  "real_figure": null,
+  "known_bias": null,
+  "provenance": {
+    "origin": "FMS Consulting Casebook 2023-24, printed p.115",
+    "source_ref": "FMS-26",
+    "written_by": "Claude (hand-written sample for #48, from docs/spikes/format)",
+    "reviewed_by": null,
+    "reviewed_on": null,
+    "review_notes": null
+  },
+  "difficulty": {
+    "level": "hard",
+    "filters": 5,
+    "branches": 2,
+    "catches": [
+      "Total versus per-period: daily active partners are not monthly active partners",
+      "Channel mix: food delivery and Instamart share one partner pool"
+    ],
+    "counted_from_path": "path-1"
+  },
+  "figures": {
+    "mumbai_population": {
+      "assumption_only": false,
+      "value": 18400000,
+      "unit": "people",
+      "source": "Census of India 2011, Greater Mumbai urban agglomeration",
+      "date": "2011-03",
+      "update_cadence": "decennial census, with yearly projections",
+      "auto_checkable": false,
+      "fallback": 20000000
+    }
+  },
+  "paths": [
+    {
+      "id": "path-1",
+      "name": "Orders divided by orders per partner",
+      "role": "main",
+      "archetype": "demand-over-supply",
+      "no_archetype_reason": null,
+      "base": "Mumbai population",
+      "steps": [
+        "Food app users = population x share who use food apps",
+        "Swiggy food orders per day = users x Swiggy share x orders per user per month / 30",
+        "Add Instamart orders per day",
+        "Daily active partners = total daily orders / orders per partner per day",
+        "Monthly active partners = daily active partners / share of the month a typical partner works"
+      ],
+      "drivers": [
+        { "name": "Population", "low": 18000000, "high": 22000000, "unit": "people", "basis": "documented", "figure": "mumbai_population" },
+        { "name": "Share who use food apps", "low": 0.2, "high": 0.3, "unit": "share", "basis": "assumption" },
+        { "name": "Swiggy share of food orders", "low": 0.4, "high": 0.5, "unit": "share", "basis": "assumption" },
+        { "name": "Orders per user per month", "low": 3, "high": 5, "unit": "orders", "basis": "assumption" },
+        { "name": "Instamart orders per day", "low": 100000, "high": 250000, "unit": "orders", "basis": "assumption" },
+        { "name": "Orders per partner per day", "low": 10, "high": 18, "unit": "orders", "basis": "assumption" },
+        { "name": "Share of the month a partner works", "low": 0.5, "high": 0.75, "unit": "share", "basis": "assumption" }
+      ],
+      "model_solution": "2 crore people x 25% use food apps x 45% Swiggy share x 4 orders a month / 30 = 3 lakh food orders a day. Add 1.5 lakh Instamart orders for 4.5 lakh a day. At 14 orders per partner that is about 32,000 partners on a given day. A typical partner works 60% of the month, so about 53,000 partners are active in the month.",
+      "central_estimate": 53000,
+      "catches": [
+        "Daily active partners are not monthly active partners",
+        "Batching two orders in one trip raises orders per partner",
+        "Leaving out Instamart undercounts the shared pool"
+      ],
+      "common_mistakes": [
+        "Reporting daily active partners as the final answer",
+        "Assuming every partner works a full 8-hour shift every day",
+        "Using the whole population instead of food app users",
+        "Assuming Swiggy has 100% of orders"
+      ],
+      "sanity_check": "Implied pay: 14 orders at Rs 30 to 40 each is Rs 420 to 560 a day before incentives, which is plausible gig pay."
+    },
+    {
+      "id": "path-2",
+      "name": "Mumbai's share of Swiggy's national partners",
+      "role": "cross-check",
+      "archetype": "none",
+      "no_archetype_reason": "Splits a published company total by a city share; it builds nothing up from demand or capacity.",
+      "base": "Swiggy's national count of monthly transacting delivery partners",
+      "steps": [
+        "Recall Swiggy's national monthly transacting partners",
+        "Multiply by Mumbai's share of Swiggy orders",
+        "Adjust if Mumbai partners do more or fewer orders each than the national average"
+      ],
+      "drivers": [
+        { "name": "National monthly transacting partners", "low": 400000, "high": 600000, "unit": "partners", "basis": "assumption" },
+        { "name": "Mumbai share of Swiggy orders", "low": 0.07, "high": 0.13, "unit": "share", "basis": "assumption" },
+        { "name": "Productivity adjustment", "low": 0.9, "high": 1.1, "unit": "multiplier", "basis": "assumption" }
+      ],
+      "model_solution": "About 5 lakh partners nationally x 8% of orders in Mumbai = about 40,000 partners.",
+      "central_estimate": 40000,
+      "catches": [
+        "Company disclosures may report registered partners, which are about 2.5 times monthly active"
+      ],
+      "common_mistakes": [
+        "Using Mumbai's share of India's population (about 1.5%) instead of its share of orders",
+        "Stating a recalled national figure as fact without a range"
+      ],
+      "sanity_check": "Should land within about 30% of path 1. A bigger gap usually means a definition mismatch."
+    },
+    {
+      "id": "path-3",
+      "name": "Riders needed at the evening peak",
+      "role": "cross-check",
+      "archetype": "demand-over-supply",
+      "no_archetype_reason": null,
+      "base": "Orders in the peak hour",
+      "steps": [
+        "Peak orders per hour = daily orders x share in the 2-hour dinner window / 2",
+        "Riders needed at once = peak orders per hour / orders one rider completes per hour",
+        "Monthly active partners = riders needed at once / share of monthly partners online at peak"
+      ],
+      "drivers": [
+        { "name": "Share of daily orders in the 2-hour dinner window", "low": 0.25, "high": 0.35, "unit": "share", "basis": "assumption" },
+        { "name": "Orders per rider per peak hour", "low": 1.5, "high": 2.5, "unit": "orders", "basis": "assumption" },
+        { "name": "Share of monthly partners online at peak", "low": 0.4, "high": 0.6, "unit": "share", "basis": "assumption" }
+      ],
+      "model_solution": "3 lakh food orders x 30% in the dinner window / 2 hours = 45,000 an hour, plus about 7,500 Instamart, so 52,500 an hour. At 2 orders a rider an hour, 26,000 riders must be on the road at once. If half of monthly partners log in at peak, the fleet is about 52,000.",
+      "central_estimate": 52000,
+      "catches": [
+        "The fleet is sized for the peak, not the daily average",
+        "Rain raises demand and cuts the riders online at the same time"
+      ],
+      "common_mistakes": [
+        "Dividing peak-hour orders by orders per day instead of per hour",
+        "Reporting riders on the road at once as the whole fleet"
+      ],
+      "sanity_check": "A 30 to 40 minute round trip caps a rider at about 2 orders an hour."
+    },
+    {
+      "id": "path-4",
+      "name": "Delivery hubs times riders each",
+      "role": "cross-check",
+      "archetype": "supply-side",
+      "no_archetype_reason": null,
+      "base": "One Instamart dark store and one food delivery zone",
+      "steps": [
+        "Instamart riders per day = dark stores x riders per store",
+        "Food riders at peak = delivery zones x riders online per zone at peak",
+        "Food riders per day = food riders at peak / share of daily riders online at peak",
+        "Monthly active partners = total daily riders / share of the month a partner works"
+      ],
+      "drivers": [
+        { "name": "Instamart dark stores in Mumbai", "low": 80, "high": 150, "unit": "stores", "basis": "assumption" },
+        { "name": "Riders per dark store per day", "low": 25, "high": 60, "unit": "riders", "basis": "assumption" },
+        { "name": "Food delivery zones", "low": 70, "high": 120, "unit": "zones", "basis": "assumption" },
+        { "name": "Riders online per zone at peak", "low": 120, "high": 250, "unit": "riders", "basis": "assumption" },
+        { "name": "Share of daily riders online at peak", "low": 0.55, "high": 0.75, "unit": "share", "basis": "assumption" },
+        { "name": "Share of the month a partner works", "low": 0.5, "high": 0.75, "unit": "share", "basis": "assumption" }
+      ],
+      "model_solution": "120 dark stores x 40 riders = 4,800 a day. 100 zones x 200 riders at peak = 20,000, and at 65% of daily riders online at peak that is about 31,000 food riders a day. About 36,000 riders a day, working 65% of the month, gives about 55,000 monthly active partners.",
+      "central_estimate": 55000,
+      "catches": [
+        "The number of food zones is not public and is the weakest driver",
+        "Riders who switch between food and Instamart can be counted twice"
+      ],
+      "common_mistakes": [
+        "Counting dark store pickers and packers as riders",
+        "Treating riders online at peak as the total"
+      ],
+      "sanity_check": "About 55,000 partners across about 35,000 Swiggy restaurants is roughly 1.5 per restaurant."
+    }
+  ]
+}
