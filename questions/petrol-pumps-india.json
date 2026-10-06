@@ -1,0 +1,170 @@
+{
+  "format_version": 1,
+  "id": "petrol-pumps-india",
+  "question": "Estimate the number of petrol pumps in India.",
+  "status": "draft",
+  "status_reason": null,
+  "answer": {
+    "counts": "Retail fuel outlets (forecourts) selling petrol or diesel to the public",
+    "unit": "retail outlets",
+    "alternatives": [
+      { "definition": "Dispensing units or nozzles", "conversion": "about 4 to 6 per outlet", "accepted": true },
+      { "definition": "Including captive pumps for railways, defence and fleet depots", "conversion": "adds a few thousand", "accepted": true }
+    ]
+  },
+  "scope": {
+    "assumptions": [
+      "All of India, all oil companies, public and private.",
+      "Small rural outlets (Kisan Seva Kendras) are included.",
+      "Standalone CNG stations and EV chargers are excluded.",
+      "Fuel volumes are for a financial year, April to March."
+    ]
+  },
+  "reference_date": "2025-11",
+  "bands": {
+    "good": { "low": 60000, "high": 120000 },
+    "acceptable": { "low": 40000, "high": 150000 },
+    "note": "Proposed from the two blind solvers in the format stress test. Under 30,000 usually means peak capacity was used; over 200,000 usually means nozzles were counted. To be replaced or checked by the calculated range from #50."
+  },
+  "real_figure": {
+    "value": 100000,
+    "source": "PPAC (Petroleum Planning and Analysis Cell), as reported by Deccan Chronicle",
+    "url": "https://www.deccanchronicle.com/nation/current-affairs/indias-petrol-pump-network-crossed-100000-mark-till-november-1926308",
+    "date": "2025-11",
+    "note": "The network crossed 1 lakh outlets in November 2025 and has roughly doubled in a decade, so older figures are much lower."
+  },
+  "known_bias": "Sound estimates land below the real figure, because people assume an average pump is busier than it is. India has many small rural outlets selling far less than a city or highway pump, so real average throughput is nearer 120 to 140 KL a month.",
+  "provenance": {
+    "origin": "FMS Consulting Casebook 2023-24, printed p.90-92",
+    "source_ref": "FMS-06",
+    "written_by": "Claude (hand-written sample for #48, from docs/spikes/format)",
+    "reviewed_by": null,
+    "reviewed_on": null,
+    "review_notes": "Diesel consumption is marked as an assumption until a PPAC figure is checked."
+  },
+  "difficulty": {
+    "level": "hard",
+    "filters": 4,
+    "branches": 2,
+    "catches": [
+      "Units to align: fuel in tonnes against throughput in litres, and monthly throughput against annual volume"
+    ],
+    "counted_from_path": "path-1"
+  },
+  "figures": {
+    "petrol_consumption": {
+      "assumption_only": false,
+      "value": 40,
+      "unit": "million tonnes a year",
+      "source": "PPAC consumption data, FY2024-25",
+      "date": "2025-03",
+      "update_cadence": "monthly and annual",
+      "auto_checkable": true,
+      "fallback": 40
+    },
+    "diesel_consumption": {
+      "assumption_only": true,
+      "value": 90,
+      "unit": "million tonnes a year"
+    }
+  },
+  "paths": [
+    {
+      "id": "path-1",
+      "name": "Fuel volume divided by throughput per pump",
+      "role": "main",
+      "archetype": "demand-over-supply",
+      "no_archetype_reason": null,
+      "base": "National petrol and diesel consumption",
+      "steps": [
+        "Convert petrol tonnes to litres at 0.74 kg per litre",
+        "Convert diesel tonnes to litres at 0.83 kg per litre, then keep the share sold at pumps",
+        "Add the two for retail litres a year",
+        "Annual throughput per pump = monthly throughput x 12",
+        "Pumps = retail litres a year / annual throughput per pump"
+      ],
+      "drivers": [
+        { "name": "Petrol consumption", "low": 38, "high": 42, "unit": "million tonnes a year", "basis": "documented", "figure": "petrol_consumption" },
+        { "name": "Diesel consumption", "low": 85, "high": 95, "unit": "million tonnes a year", "basis": "assumption" },
+        { "name": "Share of diesel sold at pumps", "low": 0.85, "high": 0.92, "unit": "share", "basis": "assumption" },
+        { "name": "Average throughput per pump", "low": 120, "high": 200, "unit": "kilolitres a month", "basis": "assumption" }
+      ],
+      "model_solution": "40 million tonnes of petrol is about 54 billion litres. 90 million tonnes of diesel is about 108 billion litres, of which about 88% is sold at pumps, so 95 billion. Retail volume is about 150 billion litres a year. An average pump sells 150 KL a month, or 1.8 million litres a year, so India needs about 83,000 pumps.",
+      "central_estimate": 83000,
+      "catches": [
+        "Tonnes must be converted to litres, at different densities for petrol and diesel",
+        "Some diesel goes in bulk to railways, defence and industry and never reaches a pump",
+        "Average throughput is far below a busy city or highway pump"
+      ],
+      "common_mistakes": [
+        "Using a busy urban pump's throughput as the national average",
+        "Counting petrol only and forgetting diesel, which is twice the volume",
+        "Treating tonnes as litres",
+        "Mixing monthly and annual throughput"
+      ],
+      "sanity_check": "About 83,000 pumps for 1.4 billion people is 1 per 17,000 people, plausible given India's low car ownership."
+    },
+    {
+      "id": "path-2",
+      "name": "Refuels per day divided by refuels one pump handles",
+      "role": "cross-check",
+      "archetype": "demand-over-supply",
+      "no_archetype_reason": null,
+      "base": "The registered vehicle fleet",
+      "steps": [
+        "Active vehicles by type = registered vehicles x share still in use",
+        "Refuels per day = active vehicles of each type / days between refuels",
+        "Refuels one pump handles a day = litres sold a day / average litres per refuel",
+        "Pumps = refuels per day / refuels per pump per day"
+      ],
+      "drivers": [
+        { "name": "Registered vehicles", "low": 300000000, "high": 350000000, "unit": "vehicles", "basis": "assumption" },
+        { "name": "Share still in use", "low": 0.6, "high": 0.8, "unit": "share", "basis": "assumption" },
+        { "name": "Refuels across all vehicles", "low": 35000000, "high": 65000000, "unit": "refuels a day", "basis": "assumption" },
+        { "name": "Refuels per pump", "low": 500, "high": 900, "unit": "refuels a day", "basis": "assumption" }
+      ],
+      "model_solution": "About 230 million vehicles in use. Two-wheelers refuel every 5 days, cars weekly, three-wheelers and trucks every day or two, for about 45 million refuels a day. A pump selling 5,000 litres a day at about 8 litres a refuel handles about 650 refuels. 45 million / 650 is about 70,000 pumps.",
+      "central_estimate": 70000,
+      "catches": [
+        "Registered vehicles overstate the vehicles in use, because scrapped vehicles are rarely deregistered",
+        "Two-wheelers dominate the number of refuels but not the litres"
+      ],
+      "common_mistakes": [
+        "Treating every registered vehicle as active",
+        "Assuming every vehicle refuels daily",
+        "Using a pump's peak capacity instead of its average use"
+      ],
+      "sanity_check": "650 refuels at 8 litres is about 5,200 litres a day, or 156 KL a month, which should match path 1's throughput."
+    },
+    {
+      "id": "path-3",
+      "name": "Coverage: urban density plus rural spacing",
+      "role": "cross-check",
+      "archetype": "none",
+      "no_archetype_reason": "The count comes from how far apart pumps must be for access, not from fuel demand or pump capacity.",
+      "base": "Urban population and the rural land area that needs serving",
+      "steps": [
+        "Urban pumps = urban population / people per urban pump",
+        "Rural pumps = rural area served / area one rural pump covers",
+        "Pumps = urban pumps + rural pumps"
+      ],
+      "drivers": [
+        { "name": "Urban population", "low": 450000000, "high": 550000000, "unit": "people", "basis": "assumption" },
+        { "name": "People per urban pump", "low": 10000, "high": 20000, "unit": "people", "basis": "assumption" },
+        { "name": "Rural area served", "low": 2000000, "high": 2800000, "unit": "square kilometres", "basis": "assumption" },
+        { "name": "Area per rural pump", "low": 40, "high": 80, "unit": "square kilometres", "basis": "assumption" }
+      ],
+      "model_solution": "500 million urban people at 1 pump per 15,000 is about 33,000. About 2.5 million square kilometres of served rural land at 1 pump per 55 square kilometres is about 45,000. Total about 80,000.",
+      "central_estimate": 80000,
+      "catches": [
+        "Highway pumps can be counted twice, as highway and as rural",
+        "Rural pumps are partly set by policy, so pure demand logic undercounts them"
+      ],
+      "common_mistakes": [
+        "Using India's total land area, including desert, forest and mountain",
+        "Applying one urban density to the whole country"
+      ],
+      "sanity_check": "Explains why the real count is higher than paths 1 and 2: many rural pumps exist for access, not volume."
+    }
+  ]
+}

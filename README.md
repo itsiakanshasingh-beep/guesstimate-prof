@@ -34,5 +34,8 @@ One week each. Details in [docs/decisions/2026-10-03-release-2-ai-pivot.md](docs
 | `docs/reference/` | Rules the app follows, such as the problem archetypes |
 | `docs/spikes/` | One folder per spike: a `report.md` plus its evidence (data, screenshots) |
 | `prototypes/` | Throwaway experiments, kept apart from the app |
+| `questions/` | The question bank: one JSON file per question, in the format in `docs/reference/question-format.md` |
+| `scripts/` | Small tools, such as the question file check |
+| `tests/fixtures/` | Deliberately broken files that prove the checks work |
 
-The app's code is in `app/`; the question bank will go in `data/`, one file per question. Answers are never saved in this repository.
+The app's code is in `app/`. Answers are never saved in this repository.
